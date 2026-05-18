@@ -1,0 +1,60 @@
+
+.sobre {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.sobre-texto {
+    flex: 1;
+    max-width: 500px;
+    animation: fadeLeft 0.8s ease forwards;
+}
+
+.sobre-texto h2 {
+    font-family: var(--fonte-principal);
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.sobre-texto span {
+    color: #e50914;
+}
+
+.sobre-texto p {
+    font-family: var(--fonte-principal);
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.sobre-imagem {
+    flex: 1;
+
+    animation: fadeRight 1s ease forwards;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    border-radius: 12px;
+    transition: 0.3s;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.sobre-imagem img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sobre-texto {
+        max-width: 100%;
+    }
+}

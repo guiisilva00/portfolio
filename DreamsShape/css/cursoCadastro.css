@@ -1,0 +1,124 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: var(--fonte-principal, 'Segoe UI', sans-serif);
+    display:flex;
+}
+
+.hero_login {
+    flex: 1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('../img/cadastro23.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.login-card {
+    width: 100%;
+    max-width: 500px; 
+    padding: 45px;
+    background: rgba(25, 25, 25, 0.95); 
+    border-radius: 12px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 0, 0, 0.1); 
+}
+
+.login-card h2 { margin-bottom: 20px; font-size: 28px; color: #fff; }
+
+.login-card label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #bbb;
+}
+
+.login-card input, 
+.login-card select, 
+.login-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.login-card input:focus, 
+.login-card select:focus, 
+.login-card textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #e50914;
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
+}
+
+.login-card input[type="file"] {
+    padding: 8px;
+    background: rgba(229, 9, 20, 0.05);
+    border: 1px dashed rgba(229, 9, 20, 0.5);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.login-card input[type="file"]:hover {
+    background: rgba(229, 9, 20, 0.15);
+}
+
+.login-card button {
+    width: 100%;
+    padding: 14px;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-card button:hover {
+    background: #b20710;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+}
+
+#ja { margin-top: 20px; color: #888; }
+
+#conta {
+    color: #e50914;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#conta:hover {
+    color: #ff3d47;
+    text-decoration: underline;
+}
+
+select option {
+    background: #191919;
+    color: #fff;
+}

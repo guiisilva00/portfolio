@@ -1,0 +1,7 @@
+.hero-receba {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  margin-top: -50px;
+}

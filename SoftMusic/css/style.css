@@ -1,0 +1,245 @@
+/*REAPROVEITEI CSS'S/IDEIAS DE OUTROS PROJETOS!*/
+
+
+
+:root {
+    --fundo-escuro: #121212;
+    --card-cinza: #181818;
+    --card-hover: #282828;
+    --amarelo-destaque: #1DB954;
+    --amarelo-hover: #1ed760;
+    --danger: #e74c3c;
+    --texto-claro: #ffffff;
+    --texto-dim: #b3b3b3;
+    --fonte-principal: 'Inter', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--fundo-escuro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fundo-escuro);
+    color: var(--texto-claro);
+    font-family: var(--fonte-principal);
+    margin: 0;
+    letter-spacing: -0.02em;
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    width: calc(100% - 300px);
+    margin: 40px 25px 40px 275px;
+    background: var(--card-cinza);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+}
+
+.title {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--amarelo-destaque);
+    padding-left: 15px;
+}
+
+input,
+select,
+textarea {
+    background: #2a2a2a;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: white;
+    padding: 12px;
+    transition: background 0.3s, border 0.3s;
+}
+
+input:focus {
+    background: #333;
+    border-color: var(--amarelo-destaque);
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 25px;
+}
+
+th {
+    color: var(--texto-dim);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+}
+
+td {
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
+    color: var(--texto-dim);
+}
+
+td:first-child {
+    font-family: monospace;
+    color: var(--texto-dim);
+    width: 40px;
+}
+
+tr:hover td {
+    color: var(--texto-claro);
+    background-color: var(--card-hover);
+}
+
+tr:hover {
+    transition: background 0.2s ease;
+}
+
+.btn-action {
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 10px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.btn-action:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.btn-del:hover {
+    color: var(--danger);
+}
+
+.btn-edit:hover {
+    color: var(--amarelo-destaque);
+    filter: drop-shadow(0 0 8px var(--amarelo-destaque));
+}
+
+.btn {
+    background-color: var(--amarelo-destaque);
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 500px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--amarelo-hover);
+    transform: scale(1.04);
+}
+
+.form-musica {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    margin-top: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--texto-dim);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+}
+
+.form-actions {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--texto-dim);
+    padding: 12px 24px;
+    border-radius: 500px;
+    border: 1px solid #333; 
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none; 
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-secundario:hover {
+    color: var(--texto-claro);
+    border-color: var(--danger); 
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.empty-state p:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+.empty-state p:last-of-type {
+    font-size: 1rem;
+    color: #b3b3b3; 
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #1db954;
+    color: #000;
+    padding: 15px 30px;
+    border-radius: 500px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background-color: #1ed760;
+}

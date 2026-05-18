@@ -1,0 +1,71 @@
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.header.scrolled {
+  background-color: #0f0f0f;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+.header_title {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 28px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.logo span {
+  color: #e50914;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav a {
+  position: relative;
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #e50914;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}

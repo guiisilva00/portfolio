@@ -1,0 +1,112 @@
+.card-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-grid > .info-card:last-child {
+    grid-column: 2;
+}
+
+.info-card {
+    background: #111114;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 18px;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    transition: 0.3s;
+
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+.info-card:nth-child(4) { animation-delay: 0.4s; }
+
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+}
+
+.info-card-photo {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    position: relative;
+}
+
+.info-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 34%;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.info-card:hover .info-card-photo img {
+    transform: scale(1.08);
+}
+
+
+.info-card-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+
+.info-card-title {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    font-family: var(--fonte-principal);
+}
+
+
+.info-card-text {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, .75);
+    font-family: var(--fonte-principal);
+}
+
+
+.info-header-title {
+    font-size: 48px;
+    text-align: center;
+    color: white;
+    font-family: var(--fonte-principal);
+    letter-spacing: -1.2px;
+}
+
+.info-header-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, .75);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid > .info-card:last-child {
+        grid-column: auto;
+    }
+}
+#cards {
+    padding: 60px 20px 80px;
+}
