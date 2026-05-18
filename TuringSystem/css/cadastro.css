@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:var(--font-body);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:-1;
+}
+
+h2{
+    margin-bottom:15px;
+    font-family:var(--font-tech);
+    font-style:var(--font-tech-font-style);
+    font-weight:var(--font-tech-weight);
+    text-transform:var(--font-tech-transform);
+    letter-spacing:-1.2px;
+}
+
+.video-bg{
+    position:fixed;
+    inset:0;
+    width:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.login-card{
+    width:600px;
+    padding:45px;
+    background:rgba(44,44,44,.9);
+    border-radius:4px;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+    text-align:center;
+    color:white;
+}
+
+.login-card p{
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+.login-card label{
+    display:block;
+    text-align:left;
+    margin-bottom:6px;
+    font-size:12px;
+}
+
+.login-card input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:2px;
+    border:1px solid rgba(160,80,220,.3);
+    background:rgba(255,255,255,.06);
+    color:#f4f4f4;
+}
+
+.login-card input:focus{
+    outline:none;
+    border-color:rgba(160,80,220,.8);
+    box-shadow:0 0 0 3px rgba(120,40,180,.15);
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#8a2be2;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+#ja{
+    margin-top:15px;
+    font-size:15px;
+}
+
+#conta{
+    text-decoration:none;
+    color:#8a2be2;
+    font-weight:bold;
+}

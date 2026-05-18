@@ -1,0 +1,233 @@
+
+/* ============================= */
+/* PÁGINA SERVIÇOS */
+/* ============================= */
+
+/* ============================= */
+/* SERVIÇOS - VERSÃO NEON ROXO */
+/* ============================= */
+
+.servicos {
+  position: relative;
+  background: url("../img/estrelado.svg") no-repeat center center fixed;
+  background-size: cover;
+  padding-top: 120px;
+  color: white;
+}
+
+.servicos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.384);
+  z-index: 0;
+}
+
+.servicos > * {
+  position: relative;
+  z-index: 1;
+}
+
+.servicos section {
+  padding: 120px 0;
+}
+
+.servicos h1 {
+  font-size: 52px;
+  letter-spacing: 6px;
+  font-weight: 300;
+  text-align: center;
+  position: relative;
+  top: -80px;
+}
+
+.sub {
+  text-align: center;
+  position: relative;
+  top: -80px;
+}
+
+.servicos h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: left;
+}
+.section-lead {
+  max-width: 760px;
+  margin-top: 12px;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,.72);
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+/* LINHA NEON */
+.divider {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #6a3997, transparent);
+  box-shadow: 0 0 20px #8a2be2;
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.services-grid .card:last-child{
+  grid-column: 2;
+}
+
+/* CARD COM GLOW + IMAGEM NO HOVER */
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  border: 1px solid rgba(138, 43, 226, 0.6);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+  transition: 0.4s;
+}
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 40px rgba(138, 43, 226, 0.8);
+}
+
+/* PROJETOS */
+.case-item {
+  margin-bottom: 60px;
+  padding: 30px;
+  border-left: 3px solid #8a2be2;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.card-image {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.4s ease;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-image {
+  opacity: 1;
+}
+
+.card:hover .card-image img {
+  transform: scale(1);
+}
+
+.card:hover .card-content {
+  opacity: 0;
+}
+.card-whover {
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  border: 1px solid rgba(138, 43, 226, 0.6);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 25px rgba(138, 43, 226, 0.3);
+  transition: 0.4s;
+}
+.card-whover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: 100px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #6a00ff, #c266ff);
+}
+.card-whover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 22px rgba(138, 43, 226, 0.18);
+  border-color: rgba(194, 102, 255, 0.42);
+}
+.case-tag {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #d9c2ff;
+  background: rgba(138, 43, 226, 0.14);
+  border: 1px solid rgba(138, 43, 226, 0.25);
+}
+
+.card-content h3 {
+  font-size: 28px;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.card-content p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.82);
+  margin-bottom: 12px;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.flag {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flag:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px #8a2be2);
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+}
+
+.btn-orcamento {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 15px 35px;
+  background: linear-gradient(90deg, #6a00ff, #a100ff);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 40px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px #a100ff;
+}
+
+.btn-orcamento:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #c266ff, 0 0 40px #a100ff;
+}

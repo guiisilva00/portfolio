@@ -1,0 +1,55 @@
+carrossel.css
+    html{
+  scroll-behavior: smooth;
+}
+    
+    body { margin: 0; }
+    
+    .carrossel {
+      margin: 0 auto;
+      padding: 10px 0;
+      overflow: hidden;
+      display: flex;
+      width: 100vw;
+    }
+
+    .carrossel-card {
+      flex-shrink: 0;
+      width: 250px; 
+      height: 150px;
+      color: transparent;
+      box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 20px 0;
+      display: flex;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #000000;
+      border-radius: 15px;
+      opacity: 0.4;
+    }
+
+    .carrossel-card:nth-child(1) { background-image: url('../img/carrossel/github.jpg'); }
+    .carrossel-card:nth-child(2) { background-image: url('../img/carrossel/dockerp.png'); }
+    .carrossel-card:nth-child(3) { background-image: url('../img/carrossel/icone-html-grise.png'); }
+    .carrossel-card:nth-child(4) { background-image: url('../img/carrossel/css3.png'); }
+    .carrossel-card:nth-child(5) { background-image: url('../img/carrossel/java.png'); }
+    .carrossel-card:nth-child(6) { background-image: url('../img/carrossel/javascript-logo.png'); }
+    .carrossel-card:nth-child(7) { background-image: url('../img/carrossel/nodejs.png'); }
+    .carrossel-card:nth-child(8) { background-image: url('../img/carrossel/Mongodb.png'); }
+    .carrossel-card:nth-child(9) { background-image: url('../img/carrossel/phplogo.png'); }
+    .carrossel-card:nth-child(10) { background-image: url('../img/carrossel/pythonlogo.png'); }
+    .carrossel-card:nth-child(11) { background-image: url('../img/carrossel/reactlogo.png'); }
+    .carrossel-card:nth-child(12) { background-image: url('../img/carrossel/express\ js.jpg'); }
+    
+    .group {
+      display: flex;
+      gap: 20px;
+      padding-right: 20px;
+      will-change: transform;
+      animation: scrolling 30s linear infinite; 
+    }
+
+    @keyframes scrolling {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }

@@ -1,0 +1,18 @@
+:root {
+  --font-body: "Montserrat", sans-serif;
+  --font-tech: "Major Mono Display", monospace;
+
+  --font-tech-weight: 400;
+  --font-tech-transform: lowercase;
+  --font-tech-letter-spacing: 1.5px;
+  --font-tech-font-style: normal;
+  
+
+  --color-bg: #000000;
+  --color-surface: #050505;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255,255,255,.8);
+  --color-line: rgba(255,255,255,.08);
+  --color-opacity: rgba(255,255,255,.75);
+  --color-section: #1A0D2E;
+}
