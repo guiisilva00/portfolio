@@ -47,8 +47,8 @@ Estou em busca de evolução constante e **aberto a oportunidades** de estágio 
 ## 📊 GitHub Stats
 
 <p align="left">
-  <img height="180" src="https://github-readme-stats-one-bice.vercel.app/api?username=miglizz08&show_icons=true&theme=tokyonight" />
-  <img height="180" src="https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=miglizz08&layout=compact&theme=tokyonight" />
+  <img height="180" src="https://github-readme-stats-one-bice.vercel.app/api?username=guiisilva00&show_icons=true&theme=tokyonight" />
+  <img height="180" src="https://github-readme-stats-one-bice.vercel.app/api/top-langs/?username=guiisilva00&layout=compact&theme=tokyonight" />
 </p>
 
 ---
