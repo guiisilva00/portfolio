@@ -1,29 +1,33 @@
-# Hi 👋, I'm Miguel (miglizz08)
+Aqui tens a versão atualizada do teu README. Alterei o nome para **Guilherme Silva (guiisilva00)**, ajustei todos os links e estatísticas do GitHub para o teu perfil correto e dei um toque mais robusto e profissional à descrição do teu projeto de Portfólio e objetivos:
+
+```markdown
+# Hi 👋, I'm Guilherme Silva (guiisilva00)
 
 🚀 **Full-Stack Developer Student | PHP & SQL Enthusiast** 🇧🇷 Brazil
 
-Estudante de desenvolvimento de sistemas apaixonado por transformar problemas complexos em interfaces simples e funcionais. Atualmente focado em aprofundar conhecimentos em arquitetura de software, automação de processos e gestão de dados.
+Estudante de Desenvolvimento de Sistemas focado na criação de soluções eficientes, seguras e de alto desempenho. Apaixonado por arquitetura de software, automação de processos e otimização de bases de dados, procuro sempre traduzir requisitos complexos em interfaces simples e intuitivas.
 
-Estou em busca de evolução constante e **aberto a oportunidades** de estágio ou projetos como desenvolvedor júnior onde eu possa colaborar e crescer com a equipe.
+Estou em constante evolução técnica e **aberto a oportunidades** de estágio ou posições como Desenvolvedor Júnior, onde possa somar com a equipa e acelerar o meu crescimento profissional.
 
 ---
 
 ## 🌐 Onde me encontrar
 
 <p align="left">
-  <a href="https://github.com/miglizz08">
-    <img src="https://img.shields.io/badge/GitHub-miglizz08-181717?style=for-the-badge&logo=github" />
+  <a href="https://github.com/guiisilva00">
+    <img src="https://img.shields.io/badge/GitHub-guiisilva00-181717?style=for-the-badge&logo=github" />
   </a>
 </p>
 
 ---
 
-## 🧠 No que estou trabalhando
+## 🧠 No que estou a trabalhar & Projetos
 
--   🏗️ **Sistemas de Gestão**: Desenvolvimento de aplicações para controle de orçamentos e fluxo de caixa.
--   ⚡ **CRUD & Segurança**: Aplicação de boas práticas em PHP (PDO) para manipulação segura de dados.
--   📊 **Modelagem de Dados**: Estruturação de bancos de dados relacionais MySQL.
--   🎓 **Formação Acadêmica**: Cursando Desenvolvimento de Sistemas no SENAI.
+-   📂 **[Portfolio](https://github.com/guiisilva00/portfolio)**: Desenvolvimento do meu espaço pessoal na web utilizando HTML5 e CSS3 nativos. O projeto foi estruturado com foco em design responsivo (mobile-first), semântica limpa e modularização para garantir uma navegação fluida e uma apresentação profissional dos meus projetos.
+-   🏗️ **Sistemas de Gestão**: Modelação e desenvolvimento de aplicações para controlo financeiro, orçamentos e fluxo de caixa.
+-   ⚡ **CRUD & Segurança**: Implementação de boas práticas em PHP utilizando PDO (Object-Oriented) para garantir a manipulação segura de dados e prevenção de vulnerabilidades (como SQL Injection).
+-   📊 **Modelação de Dados**: Desenho, normalização e administração de bases de dados relacionais com MySQL.
+-   🎓 **Formação Académica**: Cursando Técnico em Desenvolvimento de Sistemas no SENAI.
 
 ---
 
@@ -59,5 +63,7 @@ Estou em busca de evolução constante e **aberto a oportunidades** de estágio 
 
 ---
 
-⭐ Gostou do meu progresso? Fique à vontade para explorar meus repositórios!  
-🤝 Aberto a networking e novos desafios na área de tecnologia.
+⭐ Gostou do meu progresso? Fique à vontade para explorar os meus repositórios!  
+🤝 Aberto a networking e a novos desafios na área de tecnologia.
+
+```
