@@ -1,6 +1,3 @@
-Aqui tens a versão atualizada do teu README. Alterei o nome para **Guilherme Silva (guiisilva00)**, ajustei todos os links e estatísticas do GitHub para o teu perfil correto e dei um toque mais robusto e profissional à descrição do teu projeto de Portfólio e objetivos:
-
-```markdown
 # Hi 👋, I'm Guilherme Silva (guiisilva00)
 
 🚀 **Full-Stack Developer Student | PHP & SQL Enthusiast** 🇧🇷 Brazil
