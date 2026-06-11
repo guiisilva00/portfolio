@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RentEase — Alugue qualquer coisa, de qualquer pessoa</title>
-  <meta name="description" content="A plataforma peer-to-peer para alugar e compartilhar itens da sua comunidade com segurança e confiança." />
+  <meta name="description"
+    content="A plataforma peer-to-peer para alugar e compartilhar itens da sua comunidade com segurança e confiança." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- LOADER -->
   <div id="loader">
     <div class="loader-inner">
       <svg class="loader-logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="22" stroke="#10B981" stroke-width="2.5"/>
-        <path d="M14 24 C14 18 19 14 24 14 C29 14 34 18 34 24" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M34 24 C34 30 29 34 24 34 C19 34 14 30 14 24" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="24" cy="24" r="4" fill="#10B981"/>
+        <circle cx="24" cy="24" r="22" stroke="#10B981" stroke-width="2.5" />
+        <path d="M14 24 C14 18 19 14 24 14 C29 14 34 18 34 24" stroke="#10B981" stroke-width="2.5"
+          stroke-linecap="round" />
+        <path d="M34 24 C34 30 29 34 24 34 C19 34 14 30 14 24" stroke="#1E293B" stroke-width="2.5"
+          stroke-linecap="round" />
+        <circle cx="24" cy="24" r="4" fill="#10B981" />
       </svg>
-      <div class="loader-bar"><div class="loader-progress"></div></div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
       <p class="loader-text">Carregando experiência...</p>
     </div>
   </div>
@@ -31,10 +40,12 @@
     <div class="nav-container">
       <a href="#" class="nav-logo">
         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
-          <circle cx="24" cy="24" r="22" stroke="#10B981" stroke-width="2.5"/>
-          <path d="M14 24 C14 18 19 14 24 14 C29 14 34 18 34 24" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M34 24 C34 30 29 34 24 34 C19 34 14 30 14 24" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="24" cy="24" r="4" fill="#10B981"/>
+          <circle cx="24" cy="24" r="22" stroke="#10B981" stroke-width="2.5" />
+          <path d="M14 24 C14 18 19 14 24 14 C29 14 34 18 34 24" stroke="#10B981" stroke-width="2.5"
+            stroke-linecap="round" />
+          <path d="M34 24 C34 30 29 34 24 34 C19 34 14 30 14 24" stroke="#1E293B" stroke-width="2.5"
+            stroke-linecap="round" />
+          <circle cx="24" cy="24" r="4" fill="#10B981" />
         </svg>
         <span>Rent<strong>Ease</strong></span>
       </a>
@@ -75,15 +86,19 @@
         Mais de 12.400 itens disponíveis agora
       </div>
       <h1 class="hero-title reveal-up">
-        Alugue qualquer coisa<br/>
+        Alugue qualquer coisa<br />
         <span class="gradient-text">da sua comunidade</span>
       </h1>
       <p class="hero-subtitle reveal-up">
-        Câmeras, ferramentas, tendas, bicicletas — encontre o que você precisa perto de você. Sem burocracia, com segurança total.
+        Câmeras, ferramentas, tendas, bicicletas — encontre o que você precisa perto de você. Sem burocracia, com
+        segurança total.
       </p>
       <div class="hero-search reveal-up">
         <div class="search-box">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
           <input type="text" id="heroSearch" placeholder="O que você quer alugar hoje?" autocomplete="off" />
           <div class="search-suggestions" id="searchSuggestions"></div>
         </div>
@@ -129,67 +144,93 @@
       <div class="section-header reveal-up">
         <span class="section-eyebrow">Simples assim</span>
         <h2 class="section-title">Como funciona o RentEase</h2>
-        <p class="section-desc">Em menos de 5 minutos você já pode estar com o item na mão — ou ganhando dinheiro com o que tem em casa.</p>
+        <p class="section-desc">Em menos de 5 minutos você já pode estar com o item na mão — ou ganhando dinheiro com o
+          que tem em casa.</p>
       </div>
       <div class="steps-grid">
         <div class="step-card reveal-left">
           <div class="step-icon-wrap" style="--c: #10B981">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
           </div>
           <div class="step-content">
             <span class="step-tag">Para quem aluga</span>
             <h3>Encontre o item</h3>
-            <p>Busque por categoria, localização ou disponibilidade. Nosso mapa mostra opções próximas de você em tempo real.</p>
+            <p>Busque por categoria, localização ou disponibilidade. Nosso mapa mostra opções próximas de você em tempo
+              real.</p>
           </div>
         </div>
         <div class="step-card reveal-up" style="--delay: 0.1s">
           <div class="step-icon-wrap" style="--c: #F59E0B">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
           </div>
           <div class="step-content">
             <span class="step-tag">Para quem aluga</span>
             <h3>Reserve as datas</h3>
-            <p>Escolha o período no calendário interativo e envie sua solicitação. O dono tem até 24h para confirmar.</p>
+            <p>Escolha o período no calendário interativo e envie sua solicitação. O dono tem até 24h para confirmar.
+            </p>
           </div>
         </div>
         <div class="step-card reveal-right" style="--delay: 0.2s">
           <div class="step-icon-wrap" style="--c: #10B981">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
           </div>
           <div class="step-content">
             <span class="step-tag">Para ambos</span>
             <h3>Retire com QR Code</h3>
-            <p>Na retirada, use o QR Code único gerado pelo app para validar a entrega. Seu depósito fica em escrow até a devolução.</p>
+            <p>Na retirada, use o QR Code único gerado pelo app para validar a entrega. Seu depósito fica em escrow até
+              a devolução.</p>
           </div>
         </div>
         <div class="step-card reveal-left" style="--delay: 0.1s">
           <div class="step-icon-wrap" style="--c: #3B82F6">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
           </div>
           <div class="step-content">
             <span class="step-tag">Para quem lista</span>
             <h3>Liste em minutos</h3>
-            <p>Adicione fotos, defina o preço diário e configure sua disponibilidade. Seu item fica visível para milhares de pessoas.</p>
+            <p>Adicione fotos, defina o preço diário e configure sua disponibilidade. Seu item fica visível para
+              milhares de pessoas.</p>
           </div>
         </div>
         <div class="step-card reveal-up" style="--delay: 0.2s">
           <div class="step-icon-wrap" style="--c: #10B981">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
           </div>
           <div class="step-content">
             <span class="step-tag">Para quem lista</span>
             <h3>Receba seguro</h3>
-            <p>Pagamentos em escrow, depósito de segurança automático e repasse em até 24h após a retirada confirmada.</p>
+            <p>Pagamentos em escrow, depósito de segurança automático e repasse em até 24h após a retirada confirmada.
+            </p>
           </div>
         </div>
         <div class="step-card reveal-right" style="--delay: 0.3s">
           <div class="step-icon-wrap" style="--c: #F59E0B">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
           </div>
           <div class="step-content">
             <span class="step-tag">Para ambos</span>
             <h3>Avalie a experiência</h3>
-            <p>Construa sua reputação com avaliações verificadas. Quanto mais estrelas, mais confiança e mais oportunidades.</p>
+            <p>Construa sua reputação com avaliações verificadas. Quanto mais estrelas, mais confiança e mais
+              oportunidades.</p>
           </div>
         </div>
       </div>
@@ -266,7 +307,9 @@
       <div class="load-more-wrap reveal-up">
         <button class="btn-outline" onclick="loadMore()">
           Ver mais itens
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
     </div>
@@ -279,18 +322,25 @@
         <div class="map-content reveal-left">
           <span class="section-eyebrow">Perto de você</span>
           <h2 class="section-title">Veja no mapa</h2>
-          <p>Encontre itens disponíveis na sua vizinhança. Endereços exatos só liberados após confirmação da reserva — sua privacidade e a do dono protegidas.</p>
+          <p>Encontre itens disponíveis na sua vizinhança. Endereços exatos só liberados após confirmação da reserva —
+            sua privacidade e a do dono protegidas.</p>
           <ul class="map-features">
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
               Raio de busca configurável
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
               Filtros por preço e disponibilidade
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
               Localização aproximada até a reserva
             </li>
           </ul>
@@ -332,28 +382,41 @@
       <div class="trust-grid">
         <div class="trust-card reveal-up">
           <div class="trust-icon" style="--tc: #10B981">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
           </div>
           <h3>Verificação de identidade</h3>
-          <p>Todo usuário de itens de alto valor passa por verificação com documento + selfie antes de alugar ou listar.</p>
+          <p>Todo usuário de itens de alto valor passa por verificação com documento + selfie antes de alugar ou listar.
+          </p>
         </div>
         <div class="trust-card reveal-up" style="--delay:0.1s">
           <div class="trust-icon" style="--tc: #3B82F6">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
           </div>
           <h3>Pagamento em escrow</h3>
-          <p>Seu dinheiro fica protegido até a entrega ser confirmada. Nenhum repasse ocorre antes da validação pelo QR Code.</p>
+          <p>Seu dinheiro fica protegido até a entrega ser confirmada. Nenhum repasse ocorre antes da validação pelo QR
+            Code.</p>
         </div>
         <div class="trust-card reveal-up" style="--delay:0.2s">
           <div class="trust-icon" style="--tc: #F59E0B">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>
           </div>
           <h3>Depósito de segurança</h3>
-          <p>Itens de alto valor exigem um depósito reembolsável automático. Em caso de dano, abrimos um portal de disputa com evidências.</p>
+          <p>Itens de alto valor exigem um depósito reembolsável automático. Em caso de dano, abrimos um portal de
+            disputa com evidências.</p>
         </div>
         <div class="trust-card reveal-up" style="--delay:0.3s">
           <div class="trust-icon" style="--tc: #8B5CF6">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
           </div>
           <h3>Chat integrado e seguro</h3>
           <p>Toda comunicação acontece dentro da plataforma. Sem trocar contato pessoal antes de precisar.</p>
@@ -373,7 +436,8 @@
         <div class="testimonials-track" id="testimonialsTrack">
           <div class="testimonial-card">
             <div class="t-stars">★★★★★</div>
-            <p>"Precisava de uma câmera mirrorless por um fim de semana e economizei R$3.000. O processo foi perfeito, o dono super atencioso e o QR Code na entrega deu uma segurança enorme."</p>
+            <p>"Precisava de uma câmera mirrorless por um fim de semana e economizei R$3.000. O processo foi perfeito, o
+              dono super atencioso e o QR Code na entrega deu uma segurança enorme."</p>
             <div class="t-user">
               <div class="t-avatar" style="--av: #10B981">RM</div>
               <div>
@@ -385,7 +449,8 @@
           </div>
           <div class="testimonial-card">
             <div class="t-stars">★★★★★</div>
-            <p>"Listo minha furadeira e minha impressora 3D há 4 meses. Já recuperei o custo de compra das duas. O sistema de pagamento é impecável, cai direto na conta sem dor de cabeça."</p>
+            <p>"Listo minha furadeira e minha impressora 3D há 4 meses. Já recuperei o custo de compra das duas. O
+              sistema de pagamento é impecável, cai direto na conta sem dor de cabeça."</p>
             <div class="t-user">
               <div class="t-avatar" style="--av: #3B82F6">CS</div>
               <div>
@@ -397,7 +462,8 @@
           </div>
           <div class="testimonial-card">
             <div class="t-stars">★★★★★</div>
-            <p>"Organizei um churrasco para 80 pessoas e aluguei churrasqueira, tendas e mesas tudo pelo RentEase. Gastei 15% do que custaria comprar. Nunca mais compro item de uso esporádico."</p>
+            <p>"Organizei um churrasco para 80 pessoas e aluguei churrasqueira, tendas e mesas tudo pelo RentEase.
+              Gastei 15% do que custaria comprar. Nunca mais compro item de uso esporádico."</p>
             <div class="t-user">
               <div class="t-avatar" style="--av: #F59E0B">AL</div>
               <div>
@@ -409,7 +475,8 @@
           </div>
           <div class="testimonial-card">
             <div class="t-stars">★★★★☆</div>
-            <p>"O mapa de itens próximos é sensacional. Encontrei uma bike de montanha a 800m de casa para um passeio de domingo. Preço justo, dono gente boa, e a plataforma super segura."</p>
+            <p>"O mapa de itens próximos é sensacional. Encontrei uma bike de montanha a 800m de casa para um passeio de
+              domingo. Preço justo, dono gente boa, e a plataforma super segura."</p>
             <div class="t-user">
               <div class="t-avatar" style="--av: #8B5CF6">JF</div>
               <div>
@@ -421,7 +488,8 @@
           </div>
           <div class="testimonial-card">
             <div class="t-stars">★★★★★</div>
-            <p>"Tive um pequeno problema com um item devolvido com risco. Abri a disputa com fotos, e em 48h o RentEase resolveu tudo profissionalmente. Me devolveu o depósito na hora."</p>
+            <p>"Tive um pequeno problema com um item devolvido com risco. Abri a disputa com fotos, e em 48h o RentEase
+              resolveu tudo profissionalmente. Me devolveu o depósito na hora."</p>
             <div class="t-user">
               <div class="t-avatar" style="--av: #EC4899">PM</div>
               <div>
@@ -449,13 +517,16 @@
     <div class="container">
       <div class="cta-content reveal-up">
         <span class="section-eyebrow light">Pronto para começar?</span>
-        <h2>Junte-se a mais de<br/><span class="counter-cta" data-target="8200">0</span> pessoas<br/>já na comunidade</h2>
-        <p>Cadastre-se em menos de 2 minutos. Sem mensalidade, sem taxa de cadastro. Você só paga quando alugar algo.</p>
+        <h2>Junte-se a mais de<br /><span class="counter-cta" data-target="8200">0</span> pessoas<br />já na comunidade
+        </h2>
+        <p>Cadastre-se em menos de 2 minutos. Sem mensalidade, sem taxa de cadastro. Você só paga quando alugar algo.
+        </p>
         <div class="cta-actions">
           <button class="btn-cta-white" onclick="openModal('register')">Criar conta grátis</button>
           <button class="btn-cta-outline" onclick="openModal('list')">Listar meu primeiro item</button>
         </div>
-        <p class="cta-note">✓ Grátis para cadastrar &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Cancele quando quiser</p>
+        <p class="cta-note">✓ Grátis para cadastrar &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ Cancele quando
+          quiser</p>
       </div>
     </div>
   </section>
@@ -467,23 +538,36 @@
         <div class="footer-brand">
           <a href="#" class="nav-logo footer-logo">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
-              <circle cx="24" cy="24" r="22" stroke="#10B981" stroke-width="2.5"/>
-              <path d="M14 24 C14 18 19 14 24 14 C29 14 34 18 34 24" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M34 24 C34 30 29 34 24 34 C19 34 14 30 14 24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="24" cy="24" r="4" fill="#10B981"/>
+              <circle cx="24" cy="24" r="22" stroke="#10B981" stroke-width="2.5" />
+              <path d="M14 24 C14 18 19 14 24 14 C29 14 34 18 34 24" stroke="#10B981" stroke-width="2.5"
+                stroke-linecap="round" />
+              <path d="M34 24 C34 30 29 34 24 34 C19 34 14 30 14 24" stroke="white" stroke-width="2.5"
+                stroke-linecap="round" />
+              <circle cx="24" cy="24" r="4" fill="#10B981" />
             </svg>
             <span>Rent<strong>Ease</strong></span>
           </a>
           <p>A plataforma peer-to-peer para alugar e compartilhar com segurança na sua comunidade.</p>
           <div class="social-links">
             <a href="#" aria-label="Instagram" class="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
             </a>
             <a href="#" aria-label="Twitter/X" class="social-link">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </a>
             <a href="#" aria-label="LinkedIn" class="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
             </a>
           </div>
         </div>
@@ -531,7 +615,6 @@
   <!-- MODALS -->
   <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
 
-  <!-- Login Modal -->
   <div class="modal" id="loginModal">
     <div class="modal-header">
       <h3>Entrar na conta</h3>
@@ -540,30 +623,32 @@
     <div class="modal-body">
       <div class="oauth-btns">
         <button class="oauth-btn google">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Entrar com Google
         </button>
         <button class="oauth-btn apple">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           Entrar com Apple
         </button>
       </div>
       <div class="divider"><span>ou com email</span></div>
+
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="seu@email.com" class="form-input" />
+        <input type="email" id="loginEmail" placeholder="seu@email.com" class="form-input" required />
       </div>
+
       <div class="form-group">
         <label>Senha</label>
-        <input type="password" placeholder="••••••••" class="form-input" />
+        <input type="password" id="loginPassword" placeholder="••••••••" class="form-input" required />
       </div>
+
       <a href="#" class="forgot-link">Esqueci minha senha</a>
-      <button class="btn-primary full modal-submit" onclick="showToast('Bem-vindo de volta! 👋')">Entrar</button>
+
+      <button id="loginSubmitBtn" class="btn-primary full modal-submit">Entrar</button>
+
       <p class="modal-switch">Não tem conta? <a href="#" onclick="switchModal('register')">Cadastre-se grátis</a></p>
     </div>
   </div>
 
-  <!-- Register Modal -->
   <div class="modal" id="registerModal">
     <div class="modal-header">
       <h3>Criar sua conta</h3>
@@ -572,39 +657,44 @@
     <div class="modal-body">
       <div class="oauth-btns">
         <button class="oauth-btn google">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
           Cadastrar com Google
         </button>
       </div>
       <div class="divider"><span>ou com email</span></div>
+
       <div class="form-row">
         <div class="form-group">
           <label>Nome</label>
-          <input type="text" placeholder="Seu nome" class="form-input" />
+          <input type="text" id="registerFirstName" placeholder="Seu nome" class="form-input" required />
         </div>
         <div class="form-group">
           <label>Sobrenome</label>
-          <input type="text" placeholder="Sobrenome" class="form-input" />
+          <input type="text" id="registerLastName" placeholder="Sobrenome" class="form-input" required />
         </div>
       </div>
+
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="seu@email.com" class="form-input" />
+        <input type="email" id="registerEmail" placeholder="seu@email.com" class="form-input" required />
       </div>
+
       <div class="form-group">
         <label>Senha</label>
-        <input type="password" placeholder="Mínimo 8 caracteres" class="form-input" />
+        <input type="password" id="registerPassword" placeholder="Mínimo 8 caracteres" class="form-input" required />
       </div>
+
       <div class="form-group checkbox-group">
         <input type="checkbox" id="termsCheck" />
-        <label for="termsCheck">Li e aceito os <a href="#">Termos de uso</a> e a <a href="#">Política de privacidade</a></label>
+        <label for="termsCheck">Li e aceito os <a href="#">Termos de uso</a> e a <a href="#">Política de
+            privacidade</a></label>
       </div>
-      <button class="btn-primary full modal-submit" onclick="showToast('Conta criada! Verifique seu email 🎉')">Criar conta</button>
+
+      <button id="registerSubmitBtn" class="btn-primary full modal-submit">Criar conta</button>
+
       <p class="modal-switch">Já tem conta? <a href="#" onclick="switchModal('login')">Entrar</a></p>
     </div>
   </div>
 
-  <!-- Item Modal -->
   <div class="modal modal-wide" id="itemModal">
     <div class="modal-header">
       <h3 id="itemModalTitle">Detalhes do item</h3>
@@ -614,7 +704,6 @@
     </div>
   </div>
 
-  <!-- List Modal -->
   <div class="modal" id="listModal">
     <div class="modal-header">
       <h3>Listar um item</h3>
@@ -626,41 +715,48 @@
         <div class="list-step" data-step="2">2. Fotos</div>
         <div class="list-step" data-step="3">3. Preço</div>
       </div>
+
       <div class="form-group">
         <label>Título do item</label>
-        <input type="text" placeholder="Ex: Canon EOS R5 com lente 24-70mm" class="form-input" />
+        <input type="text" id="itemTitle" placeholder="Ex: Canon EOS R5 com lente 24-70mm" class="form-input" />
       </div>
+
       <div class="form-group">
         <label>Categoria</label>
-        <select class="form-input">
-          <option>Tecnologia</option>
-          <option>Ferramentas</option>
-          <option>Aventura</option>
-          <option>Esporte</option>
-          <option>Eventos</option>
-          <option>Casa & Jardim</option>
+        <select id="itemCategory" class="form-input">
+          <option value="tech">Tecnologia</option>
+          <option value="tools">Ferramentas</option>
+          <option value="outdoor">Aventura</option>
+          <option value="sports">Esporte</option>
+          <option value="events">Eventos</option>
+          <option value="home">Casa & Jardim</option>
         </select>
       </div>
+
       <div class="form-group">
         <label>Descrição</label>
-        <textarea class="form-input" rows="3" placeholder="Descreva o estado, o que está incluso, regras de uso..."></textarea>
+        <textarea id="itemDescription" class="form-input" rows="3"
+          placeholder="Descreva o estado, o que está incluso, regras de uso..."></textarea>
       </div>
+
       <div class="form-group">
         <label>Preço diário (R$)</label>
-        <input type="number" placeholder="45.00" class="form-input" />
+        <input type="number" id="itemPrice" placeholder="45.00" class="form-input" />
       </div>
+
       <div class="upload-zone" onclick="showToast('Upload de fotos disponível no app completo 📸')">
         <div class="upload-icon">📷</div>
         <p>Clique ou arraste fotos aqui</p>
         <span>PNG, JPG até 10MB cada</span>
       </div>
-      <button class="btn-primary full modal-submit" onclick="showToast('Item listado com sucesso! ✅')">Publicar item</button>
+
+      <button id="itemSubmitBtn" class="btn-primary full modal-submit">Publicar item</button>
     </div>
   </div>
-
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
+
 </html>

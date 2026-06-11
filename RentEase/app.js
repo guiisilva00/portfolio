@@ -1,21 +1,10 @@
 /* =============================================
-   RENTEASE — APP JAVASCRIPT
+   RENTEASE — APP JAVASCRIPT (TOTALMENTE INTEGRADO)
    ============================================= */
 
-   import { Auth, Items, Categories } from './supabase.js';
-
-// ---- DATA ----
-const ITEMS = [
-  { id:1, name:'Canon EOS R5 + 24-70mm', category:'tech', emoji:'📷', bg:'linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 100%)', price:'R$120', location:'Vila Madalena, SP', rating:4.9, reviews:47, badge:'hot', owner:'Rodrigo M.', ownerAv:'#3B82F6', desc:'Câmera full-frame 45MP, gravação 8K RAW, com lente L-series 24-70mm f/2.8. Carregadores e 2 baterias extras inclusas.' },
-  { id:2, name:'Furadeira Impacto Bosch 800W', category:'tools', emoji:'🔩', bg:'linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)', price:'R$35', location:'Pinheiros, SP', rating:4.7, reviews:23, badge:'', owner:'Carlos S.', ownerAv:'#F59E0B', desc:'Furadeira de impacto profissional com maleta, jogo de brocas completo e 2 discos de corte. Ideal para obras.' },
-  { id:3, name:'Kit Camping Completo (4 pes.)', category:'outdoor', emoji:'⛺', bg:'linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)', price:'R$80', location:'Moema, SP', rating:5.0, reviews:18, badge:'new', owner:'Ana L.', ownerAv:'#10B981', desc:'Barraca Coleman 4 pessoas, 2 colchões infláveis, 2 sacos de dormir -5°C e lanternas. Para trilhas e festivais.' },
-  { id:4, name:'Bicicleta Trek Marlin 7', category:'sports', emoji:'🚴', bg:'linear-gradient(135deg,#e0f2fe 0%,#bae6fd 100%)', price:'R$55', location:'Jardins, SP', rating:4.8, reviews:31, badge:'', owner:'João F.', ownerAv:'#8B5CF6', desc:'Bike MTB 29", suspensão dianteira, freios hidráulicos Shimano. Capacete e luvas inclusos. Excelente para trilhas.' },
-  { id:5, name:'Projetor Epson 4K 3000 lm', category:'events', emoji:'📽️', bg:'linear-gradient(135deg,#fce7f3 0%,#fbcfe8 100%)', price:'R$95', location:'Itaim Bibi, SP', rating:4.6, reviews:12, badge:'', owner:'Patricia M.', ownerAv:'#EC4899', desc:'Projetor laser 4K UHD, 3000 lúmens, conectividade HDMI/WiFi. Tela 100" e tripé incluso. Para eventos e home cinema.' },
-  { id:6, name:'DJI Mini 4 Pro Drone', category:'tech', emoji:'🚁', bg:'linear-gradient(135deg,#f3e8ff 0%,#e9d5ff 100%)', price:'R$150', location:'Brooklin, SP', rating:4.9, reviews:56, badge:'hot', owner:'Marcos V.', ownerAv:'#8B5CF6', desc:'Drone dobrável com câmera 4K/60fps, autonomia 34min, sensor de obstáculos omnidirecional. Fly More Combo.' },
-  { id:7, name:'Kit Churrasco Premium 8 peças', category:'events', emoji:'🍖', bg:'linear-gradient(135deg,#fef9c3 0%,#fef08a 100%)', price:'R$45', location:'Santana, SP', rating:4.5, reviews:9, badge:'new', owner:'Roberto A.', ownerAv:'#EF4444', desc:'Churrasqueira inox 80cm, grelhas, suporte de espeto motorizado, espátulas e pegadores profissionais.' },
-  { id:8, name:'Kayak Inflável Intex 2L', category:'outdoor', emoji:'🛶', bg:'linear-gradient(135deg,#cffafe 0%,#a5f3fc 100%)', price:'R$65', location:'Morumbi, SP', rating:4.7, reviews:14, badge:'', owner:'Sandra P.', ownerAv:'#06B6D4', desc:'Kayak inflável para 2 pessoas, max 150kg, com remos de alumínio e bomba manual. Pronto para rios calmos e lago.' },
-];
-
+import { Auth, Items } from './supabase.js';
+// Variável global para armazenar os itens vindos do banco de dados (ajuda os filtros e modais)
+let cachedItems = [];
 let visibleCount = 8;
 let currentFilter = 'all';
 let currentSlide = 0;
@@ -24,34 +13,43 @@ let toastTimeout;
 // ---- LOADER ----
 window.addEventListener('load', () => {
   setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
+    const loader = document.getElementById('loader');
+    if (loader) loader.classList.add('hidden');
     startCounters();
   }, 1900);
 });
 
 // ---- NAVBAR SCROLL ----
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-});
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+}
 
 // ---- HAMBURGER ----
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+}
+
 function closeMobileMenu() {
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
+  if (hamburger && mobileMenu) {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
 }
 
 // ---- HERO CANVAS — FLOATING PARTICLES ----
 (function initCanvas() {
   const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const emojis = ['📷','🔧','⛺','🚴','🎉','🏡','🔩','🚁','🛶','📽️','🎸','⚽'];
+  const emojis = ['📷', '🔧', '⛺', '🚴', '🎉', '🏡', '🔩', '🚁', '🛶', '📽️', '🎸', '⚽'];
   let W, H, particles = [];
 
   function resize() {
@@ -105,96 +103,108 @@ function closeMobileMenu() {
 
 // ---- SEARCH SUGGESTIONS ----
 const suggestions = [
-  { icon:'📷', text:'Câmera fotográfica profissional' },
-  { icon:'🔧', text:'Furadeira de impacto' },
-  { icon:'⛺', text:'Barraca de camping' },
-  { icon:'🚴', text:'Bicicleta mountain bike' },
-  { icon:'🎉', text:'Churrasqueira para festas' },
-  { icon:'🚁', text:'Drone com câmera' },
-  { icon:'📽️', text:'Projetor 4K para eventos' },
-  { icon:'🛶', text:'Kayak inflável' },
-  { icon:'🎸', text:'Guitarra elétrica' },
-  { icon:'📻', text:'Caixa de som bluetooth' },
+  { icon: '📷', text: 'Câmera fotográfica profissional' },
+  { icon: '🔧', text: 'Furadeira de impacto' },
+  { icon: '⛺', text: 'Barraca de camping' },
+  { icon: '🚴', text: 'Bicicleta mountain bike' },
+  { icon: '🎉', text: 'Churrasqueira para festas' },
+  { icon: '🚁', text: 'Drone com câmera' },
+  { icon: '📽️', text: 'Projetor 4K para eventos' },
+  { icon: '🛶', text: 'Kayak inflável' },
+  { icon: '🎸', text: 'Guitarra elétrica' },
+  { icon: '📻', text: 'Caixa de som bluetooth' },
 ];
 
 const searchInput = document.getElementById('heroSearch');
 const suggestionsBox = document.getElementById('searchSuggestions');
 
-searchInput.addEventListener('input', () => {
-  const val = searchInput.value.toLowerCase();
-  if (!val) { suggestionsBox.classList.remove('open'); return; }
-  const filtered = suggestions.filter(s => s.text.toLowerCase().includes(val));
-  if (!filtered.length) { suggestionsBox.classList.remove('open'); return; }
-  suggestionsBox.innerHTML = filtered.slice(0,5).map(s =>
-    `<div class="suggestion-item" onclick="selectSuggestion('${s.text}')">
-      <span>${s.icon}</span><span>${s.text}</span>
-    </div>`
-  ).join('');
-  suggestionsBox.classList.add('open');
-});
+if (searchInput && suggestionsBox) {
+  searchInput.addEventListener('input', () => {
+    const val = searchInput.value.toLowerCase();
+    if (!val) { suggestionsBox.classList.remove('open'); return; }
+    const filtered = suggestions.filter(s => s.text.toLowerCase().includes(val));
+    if (!filtered.length) { suggestionsBox.classList.remove('open'); return; }
+    suggestionsBox.innerHTML = filtered.slice(0, 5).map(s =>
+      `<div class="suggestion-item" onclick="selectSuggestion('${s.text}')">
+        <span>${s.icon}</span><span>${s.text}</span>
+      </div>`
+    ).join('');
+    suggestionsBox.add('open');
+  });
 
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.hero-search')) suggestionsBox.classList.remove('open');
-});
-
-function selectSuggestion(text) {
-  searchInput.value = text;
-  suggestionsBox.classList.remove('open');
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.hero-search')) suggestionsBox.classList.remove('open');
+  });
 }
 
-function handleSearch() {
-  const val = searchInput.value.trim();
+window.selectSuggestion = function (text) {
+  if (searchInput) searchInput.value = text;
+  if (suggestionsBox) suggestionsBox.classList.remove('open');
+};
+
+window.handleSearch = function () {
+  const val = searchInput ? searchInput.value.trim() : '';
   if (val) {
-    showToast(`Buscando por "${val}"... 🔍`);
-    document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+    showToast(`Searching for "${val}"... 🔍`);
+    const featuredSec = document.getElementById('featured');
+    if (featuredSec) featuredSec.scrollIntoView({ behavior: 'smooth' });
   }
+};
+
+if (searchInput) {
+  searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') window.handleSearch(); });
 }
 
-searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSearch(); });
-
-// ---- FILTER PILLS ----
+// ---- FILTER PILLS & TABS ----
 document.querySelectorAll('.filter-pill').forEach(pill => {
   pill.addEventListener('click', () => {
     document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
     pill.classList.add('active');
-    const f = pill.dataset.filter;
-    filterItems(f);
+    filterItems(pill.dataset.filter);
+  });
+});
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterItems(btn.dataset.tab);
   });
 });
 
 function filterItems(filter) {
   currentFilter = filter;
+  // Sincroniza estados visuais entre Abas e Pills se necessário
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.tab === filter);
   });
   renderItems();
-  document.getElementById('featured').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ---- TAB BTNS ----
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.tab;
-    renderItems();
-  });
-});
-
-// ---- RENDER ITEMS ----
+// ---- RENDER ITEMS (INTEGRADO COM SUPABASE E FILTROS) ----
 async function renderItems() {
   const container = document.getElementById('featured-grid');
   if (!container) return;
 
   try {
-    // 1. Busca os itens reais da View do Supabase (que já junta dados do item, dono e categoria)
-    const items = await Items.browse({});
+    // Busca dados se a cache estiver vazia (evita requisições repetidas pesadas)
+    if (cachedItems.length === 0) {
+      cachedItems = await Items.browse({});
+    }
 
-    // Se a base de dados estiver vazia, mostra uma mensagem amigável
-    if (!items || items.length === 0) {
+    // Aplica o filtro de categoria selecionado na UI
+    let filteredItems = cachedItems;
+    if (currentFilter !== 'all') {
+      filteredItems = cachedItems.filter(item => item.category_slug === currentFilter);
+    }
+
+    // Corta a lista com base no botão "Load More"
+    const displayedItems = filteredItems.slice(0, visibleCount);
+
+    if (displayedItems.length === 0) {
       container.innerHTML = `
         <p class="no-items" style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem 0;">
-          No items available for rent yet. Be the first to list one! 🚀
+          No items found for this category. 🚀
         </p>`;
       return;
     }
@@ -203,30 +213,31 @@ async function renderItems() {
 
     const categoryStyles = {
       'technology': { emoji: '📷', bg: 'linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 100%)' },
-      'tools':      { emoji: '🔩', bg: 'linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)' },
-      'adventure':  { emoji: '⛺', bg: 'linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)' },
-      'sports':     { emoji: '⚽', bg: 'linear-gradient(135deg,#fee2e2 0%,#fca5a5 100%)' },
-      'events':     { emoji: '🎈', bg: 'linear-gradient(135deg,#fae8ff 0%,#f5d0fe 100%)' },
-      'home-garden':{ emoji: '🏡', bg: 'linear-gradient(135deg,#ffedf5 0%,#fbcfe8 100%)' }
+      'tools': { emoji: '🔩', bg: 'linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)' },
+      'adventure': { emoji: '⛺', bg: 'linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)' },
+      'sports': { emoji: '⚽', bg: 'linear-gradient(135deg,#fee2e2 0%,#fca5a5 100%)' },
+      'events': { emoji: '🎈', bg: 'linear-gradient(135deg,#fae8ff 0%,#f5d0fe 100%)' },
+      'home-garden': { emoji: '🏡', bg: 'linear-gradient(135deg,#ffedf5 0%,#fbcfe8 100%)' }
     };
 
-    items.forEach(item => {
+    displayedItems.forEach(item => {
       const style = categoryStyles[item.category_slug] || { emoji: '📦', bg: 'linear-gradient(135deg,#f3f4f6 0%,#e5e7eb 100%)' };
-      
+
       const hasPhoto = item.photos && item.photos.length > 0 && item.photos[0] !== '';
-      const imgContent = hasPhoto 
+      const imgContent = hasPhoto
         ? `<img src="${item.photos[0]}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;" />`
         : `<span class="item-emoji">${style.emoji}</span>`;
 
       const card = document.createElement('div');
-      card.className = 'item-card reveal';
-      
+      card.className = 'item-card reveal-up'; // Aplica o teu efeito de Scroll Reveal
+
       card.innerHTML = `
         <div class="item-img-container" style="background: ${style.bg}">
           ${imgContent}
           ${item.owner_top_host ? '<span class="card-badge">TOP HOST</span>' : ''}
+          <button class="btn-fav" onclick="window.toggleFav(event, this)">🤍</button>
         </div>
-        <div class="item-body">
+        <div class="item-body" onclick="window.openItemModal('${item.id}')">
           <div class="item-meta">
             <span class="item-cat">${item.category_name || 'Item'}</span>
             <span class="item-rating">★ ${Number(item.owner_rating || 5.0).toFixed(1)}</span>
@@ -234,129 +245,148 @@ async function renderItems() {
           <h3 class="item-title">${item.title}</h3>
           <p class="item-loc">📍 ${item.location || 'Community'}</p>
           <div class="item-footer">
-            <span class="item-price"><strong>R$ ${item.daily_price}</strong> / day</span>
-            <button class="btn-rent" onclick="window.location.href='pages/item.html?id=${item.id}'">Rent</button>
+            <span class="item-price"><strong>$${item.daily_price}</strong> / day</span>
+            <button class="btn-rent" onclick="event.stopPropagation(); window.location.href='pages/item.html?id=${item.id}'">Rent</button>
           </div>
         </div>
       `;
-      
+
       container.appendChild(card);
     });
 
-    initCard3DEffect();
+    // Re-ativa listeners visuais nos cards criados dinamicamente
+    initTilt();
+    observeRevealEls();
 
   } catch (error) {
     console.error('Error rendering items from Supabase:', error);
   }
 }
 
-function getCatLabel(cat) {
-  const labels = { tech:'Tecnologia', tools:'Ferramentas', outdoor:'Aventura', sports:'Esporte', events:'Eventos' };
-  return labels[cat] || cat;
-}
-
-function loadMore() {
+window.loadMore = function () {
   visibleCount += 4;
   renderItems();
-  showToast('Mais itens carregados! 📦');
-}
+  showToast('More products loaded! 📦');
+};
 
-function toggleFav(e, btn) {
+window.toggleFav = function (e, btn) {
   e.stopPropagation();
   const isFav = btn.textContent === '❤️';
   btn.textContent = isFav ? '🤍' : '❤️';
-  showToast(isFav ? 'Removido dos favoritos' : 'Adicionado aos favoritos ❤️');
-}
+  showToast(isFav ? 'Removed from favorites' : 'Added to favorites! ❤️');
+};
 
-// ---- ITEM MODAL ----
-function openItemModal(id) {
-  const item = ITEMS.find(i => i.id === id);
+// ---- ITEM DETAILS MODAL (INTEGRADO COM DADOS DINÂMICOS) ----
+window.openItemModal = function (id) {
+  const item = cachedItems.find(i => i.id === id || String(i.id) === String(id));
   if (!item) return;
-  document.getElementById('itemModalTitle').textContent = item.name;
+
+  const categoryStyles = {
+    'technology': { emoji: '📷', bg: 'linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 100%)' },
+    'tools': { emoji: '🔩', bg: 'linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)' },
+    'adventure': { emoji: '⛺', bg: 'linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)' },
+    'sports': { emoji: '⚽', bg: 'linear-gradient(135deg,#fee2e2 0%,#fca5a5 100%)' },
+    'events': { emoji: '🎈', bg: 'linear-gradient(135deg,#fae8ff 0%,#f5d0fe 100%)' },
+    'home-garden': { emoji: '🏡', bg: 'linear-gradient(135deg,#ffedf5 0%,#fbcfe8 100%)' }
+  };
+  const style = categoryStyles[item.category_slug] || { emoji: '📦', bg: '#f3f4f6' };
+
+  document.getElementById('itemModalTitle').textContent = item.title;
   document.getElementById('itemModalBody').innerHTML = `
     <div class="item-modal-grid">
-      <div class="item-modal-img" style="--bg:${item.bg}">${item.emoji}</div>
+      <div class="item-modal-img" style="background:${style.bg}; display:flex; align-items:center; justify-content:center; font-size:4rem;">
+        ${item.photos && item.photos[0] ? `<img src="${item.photos[0]}" style="width:100%; height:100%; object-fit:cover;" />` : style.emoji}
+      </div>
       <div class="item-modal-info">
-        <p class="item-category">${getCatLabel(item.category)}</p>
-        <p class="item-modal-price">${item.price}<span>/dia</span></p>
+        <p class="item-category">${item.category_name}</p>
+        <p class="item-modal-price">$${item.daily_price}<span> / day</span></p>
         <p class="item-rating" style="font-size:1rem">
-          <span class="star">★</span> ${item.rating} <span class="reviews">(${item.reviews} avaliações)</span>
+          <span class="star">★</span> ${Number(item.owner_rating || 5.0).toFixed(1)}
         </p>
-        <p class="item-location" style="font-size:.9rem">📍 ${item.location}</p>
-        <p class="item-modal-desc">${item.desc}</p>
+        <p class="item-location" style="font-size:.9rem">📍 ${item.location || 'Community'}</p>
+        <p class="item-modal-desc">${item.description || 'No description provided.'}</p>
         <div class="item-modal-owner">
-          <div class="owner-avatar" style="--av:${item.ownerAv}">${item.owner.split(' ').map(n=>n[0]).join('')}</div>
+          <div class="owner-avatar" style="background: var(--primary); color: white; display:flex; align-items:center; justify-content:center; font-weight:bold;">
+            ${item.owner_name ? item.owner_name.substring(0, 2).toUpperCase() : 'US'}
+          </div>
           <div class="owner-info">
-            <strong>${item.owner}</strong>
-            <span>✓ Identidade verificada · Top Anfitrião</span>
+            <strong>${item.owner_name || 'Community Member'}</strong>
+            <span>✓ Verified Owner ${item.owner_top_host ? '· Top Host' : ''}</span>
           </div>
         </div>
-        <button class="btn-primary full" style="margin-top:4px" onclick="closeModal();openModal('register')">
-          Solicitar reserva
+        <button class="btn-primary full" style="margin-top:12px" onclick="window.closeModal(); window.openModal('register')">
+          Request Booking
         </button>
-        <button class="btn-outline full" onclick="showToast('Chat disponível após criar sua conta 💬')">
-          💬 Contatar dono
+        <button class="btn-outline full" onclick="window.showToast('Chat will be available after creating an account 💬')">
+          💬 Contact Owner
         </button>
       </div>
     </div>
   `;
-  openModal('item');
-}
+  window.openModal('item');
+};
 
-// ---- MODALS ----
-function openModal(type) {
-  document.getElementById('modalBackdrop').classList.add('open');
+// ---- GLOBAL MODAL CONTROLLERS ----
+window.openModal = function (type) {
+  const backdrop = document.getElementById('modalBackdrop');
+  if (backdrop) backdrop.classList.add('open');
   document.body.classList.add('modal-open');
-  const map = { login:'loginModal', register:'registerModal', list:'listModal', item:'itemModal' };
+
+  const map = { login: 'loginModal', register: 'registerModal', list: 'listModal', item: 'itemModal' };
   if (map[type]) {
-    document.getElementById(map[type]).classList.add('open');
+    const m = document.getElementById(map[type]);
+    if (m) m.classList.add('open');
   }
-}
-function closeModal() {
-  document.getElementById('modalBackdrop').classList.remove('open');
+};
+
+window.closeModal = function () {
+  const backdrop = document.getElementById('modalBackdrop');
+  if (backdrop) backdrop.classList.remove('open');
   document.body.classList.remove('modal-open');
   document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
-}
-function switchModal(type) {
-  document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
-  openModal(type);
-}
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+};
 
-// ---- TOAST ----
-function showToast(msg) {
+window.switchModal = function (type) {
+  document.querySelectorAll('.modal.open').forEach(m => m.classList.remove('open'));
+  window.openModal(type);
+};
+
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') window.closeModal(); });
+
+// ---- TOAST NOTIFICATION ----
+window.showToast = function (msg) {
   const toast = document.getElementById('toast');
+  if (!toast) return;
   toast.textContent = msg;
   toast.classList.add('show');
   clearTimeout(toastTimeout);
   toastTimeout = setTimeout(() => toast.classList.remove('show'), 3500);
-}
+};
 
 // ---- COUNTER ANIMATION ----
-function animateCounter(el, target, suffix='') {
+function animateCounter(el, target) {
   let start = 0;
   const duration = 1800;
   const startTime = performance.now();
-  const ease = t => t < 0.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1;
+  const ease = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
 
   function update(now) {
     const elapsed = now - startTime;
     const t = Math.min(elapsed / duration, 1);
     const value = Math.floor(ease(t) * target);
-    el.textContent = value >= 1000 ? (value/1000).toFixed(1)+'k' : value;
+    el.textContent = value >= 1000 ? (value / 1000).toFixed(1) + 'k' : value;
     if (t < 1) requestAnimationFrame(update);
-    else el.textContent = target >= 1000 ? (target/1000).toFixed(1)+'k' : target;
+    else el.textContent = target >= 1000 ? (target / 1000).toFixed(1) + 'k' : target;
   }
   requestAnimationFrame(update);
 }
 
 function startCounters() {
-  document.querySelectorAll('[data-target]').forEach(el => {
+  document.querySelectorAll('[data-target]:not(.counter-cta)').forEach(el => {
     animateCounter(el, parseInt(el.dataset.target));
   });
 }
 
-// CTA counter (triggered on scroll)
 let ctaCounterDone = false;
 function startCtaCounter() {
   if (ctaCounterDone) return;
@@ -371,79 +401,77 @@ const track = document.getElementById('testimonialsTrack');
 const dotsContainer = document.getElementById('trackDots');
 let totalSlides = 0;
 
-function initSlider() {
+function initTestimonialSlider() {
+  if (!track || !dotsContainer) return;
   const cards = track.querySelectorAll('.testimonial-card');
   totalSlides = cards.length;
   dotsContainer.innerHTML = '';
   for (let i = 0; i < totalSlides; i++) {
     const dot = document.createElement('button');
     dot.className = 'track-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `Slide ${i+1}`);
+    dot.setAttribute('aria-label', `Slide ${i + 1}`);
     dot.addEventListener('click', () => goToSlide(i));
     dotsContainer.appendChild(dot);
   }
-  updateSlider();
 }
 
 function getSlideWidth() {
-  const card = track.querySelector('.testimonial-card');
+  const card = track ? track.querySelector('.testimonial-card') : null;
   if (!card) return 0;
   return card.offsetWidth + 20;
 }
 
-function updateSlider() {
-  track.style.transform = `translateX(-${currentSlide * getSlideWidth()}px)`;
-  document.querySelectorAll('.track-dot').forEach((d,i) => d.classList.toggle('active', i === currentSlide));
-}
-
 function goToSlide(n) {
+  if (!track) return;
   currentSlide = Math.max(0, Math.min(n, totalSlides - 1));
-  updateSlider();
+  track.style.transform = `translateX(-${currentSlide * getSlideWidth()}px)`;
+  document.querySelectorAll('.track-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
 }
 
-document.getElementById('trackPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
-document.getElementById('trackNext').addEventListener('click', () => goToSlide(currentSlide + 1));
+if (track) {
+  document.getElementById('trackPrev')?.addEventListener('click', () => goToSlide(currentSlide - 1));
+  document.getElementById('trackNext')?.addEventListener('click', () => goToSlide(currentSlide + 1));
 
-// Touch/swipe
-let touchStartX = 0;
-track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-track.addEventListener('touchend', e => {
-  const diff = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 50) goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1);
-});
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1);
+  });
 
-// Auto-play
-setInterval(() => {
-  if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
-  else goToSlide(0);
-}, 5000);
+  setInterval(() => {
+    if (totalSlides > 0) {
+      if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+      else goToSlide(0);
+    }
+  }, 5000);
 
-window.addEventListener('resize', updateSlider);
+  window.addEventListener('resize', () => goToSlide(currentSlide));
+}
 
-// ---- INTERSECTION OBSERVER — REVEAL ----
-const revealObserver = new IntersectionObserver((entries) => {
+// ---- INTERSECTION OBSERVER — VISUAL REVEAL ----
+const visualObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('revealed');
-      revealObserver.unobserve(entry.target);
+      visualObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.12 });
 
 function observeRevealEls() {
   document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
-    revealObserver.observe(el);
+    visualObserver.observe(el);
   });
 }
 
-// CTA counter observer
 const ctaObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) startCtaCounter(); });
 }, { threshold: 0.3 });
 const ctaSection = document.getElementById('cta-section');
 if (ctaSection) ctaObserver.observe(ctaSection);
 
-// ---- TILT EFFECT ON ITEM CARDS ----
+// ---- 3D TILT EFFECT ----
 function initTilt() {
   document.querySelectorAll('.item-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -462,7 +490,7 @@ function initTilt() {
   });
 }
 
-// ---- MAP PIN ANIMATION ----
+// ---- MAP PINS ----
 document.querySelectorAll('.map-pin').forEach(pin => {
   pin.addEventListener('mouseenter', () => {
     document.querySelectorAll('.map-pin').forEach(p => p.classList.remove('active'));
@@ -470,7 +498,7 @@ document.querySelectorAll('.map-pin').forEach(pin => {
   });
 });
 
-// ---- SMOOTH SCROLL FOR NAV LINKS ----
+// ---- SMOOTH SCROLL ----
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     const target = document.querySelector(link.getAttribute('href'));
@@ -481,16 +509,167 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// ---- INIT ----
+// ---- TESTIMONIAL SLIDER ----
+function initSlider() {
+  const slider = document.querySelector('.testimonial-slider');
+  const cards = document.querySelectorAll('.testimonial-card');
+  if (!slider || cards.length === 0) return;
+  
+  let currentIndex = 0;
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    slider.scrollTo({
+      left: cards[currentIndex].offsetLeft,
+      behavior: 'smooth'
+    });
+  }, 4000);
+}
+
+// ---- DOM READY & CREATION LISTENERS ----
 document.addEventListener('DOMContentLoaded', () => {
   renderItems();
-  initSlider();
+  initSlider(); // CORRIGIDO: Voltando ao nome original do teu arquivo!
   observeRevealEls();
-  // Re-observe after render
-  setTimeout(() => { observeRevealEls(); initTilt(); }, 200);
-});
 
-// Re-run tilt after tab switch
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => { setTimeout(initTilt, 100); });
+  setTimeout(() => {
+    observeRevealEls();
+    initTilt();
+  }, 400);
+
+  // ========================================================
+  // 1. ESCUTADOR DO FORMULÁRIO DE REGISTRO (SIGN UP)
+  // ========================================================
+  const registerSubmitBtn = document.getElementById('registerSubmitBtn');
+  if (registerSubmitBtn) {
+    registerSubmitBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      const firstName = document.getElementById('registerFirstName').value.trim();
+      const lastName = document.getElementById('registerLastName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value;
+      const termsCheck = document.getElementById('termsCheck').checked;
+
+      if (!firstName || !lastName || !email || !password) {
+        window.showToast('Por favor, preencha todos os campos! ⚠️');
+        return;
+      }
+      if (!termsCheck) {
+        window.showToast('Você precisa aceitar os Termos de Uso e Privacidade! 📜');
+        return;
+      }
+
+      try {
+        registerSubmitBtn.innerText = 'Criando conta... ⏳';
+        registerSubmitBtn.disabled = true;
+
+        const fullName = `${firstName} ${lastName}`;
+        await Auth.signUp(email, password, fullName);
+
+        window.showToast('Conta criada! Verifique seu e-mail para confirmar. 🚀');
+        window.closeModal();
+      } catch (error) {
+        window.showToast(`Erro no cadastro: ${error.message} ❌`);
+      } finally {
+        registerSubmitBtn.innerText = 'Criar conta';
+        registerSubmitBtn.disabled = false;
+      }
+    });
+  }
+
+  // ========================================================
+  // 2. ESCUTADOR DO FORMULÁRIO DE LOGIN (SIGN IN)
+  // ========================================================
+  const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+  if (loginSubmitBtn) {
+    loginSubmitBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      if (!email || !password) {
+        window.showToast('Por favor, insira o e-mail e a senha! ⚠️');
+        return;
+      }
+
+      try {
+        loginSubmitBtn.innerText = 'Entrando... ⏳';
+        loginSubmitBtn.disabled = true;
+
+        await Auth.signIn(email, password);
+
+        window.showToast('Bem-vindo de volta! 👋');
+        window.closeModal();
+
+        cachedItems = [];
+        if (typeof renderItems === 'function') renderItems();
+      } catch (error) {
+        window.showToast(`Falha no login: ${error.message} ❌`);
+      } finally {
+        loginSubmitBtn.innerText = 'Entrar';
+        loginSubmitBtn.disabled = false;
+      }
+    });
+  }
+
+  // ========================================================
+  // 3. ESCUTADOR DA CRIAÇÃO DE ANÚNCIOS (LIST ITEM)
+  // ========================================================
+  const itemSubmitBtn = document.getElementById('itemSubmitBtn');
+  if (itemSubmitBtn) {
+    itemSubmitBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('itemTitle').value.trim();
+      const categoryValue = document.getElementById('itemCategory').value;
+      const description = document.getElementById('itemDescription').value.trim();
+      const price = parseFloat(document.getElementById('itemPrice').value);
+
+      if (!title || !categoryValue || !description || isNaN(price)) {
+        window.showToast('Por favor, preencha todos os dados do item! ⚠️');
+        return;
+      }
+
+      const categoryMapping = {
+        'tech': 1,
+        'tools': 2,
+        'outdoor': 3,
+        'sports': 4,
+        'events': 5,
+        'home': 6
+      };
+
+      const categoryId = categoryMapping[categoryValue] || 1;
+
+      try {
+        itemSubmitBtn.innerText = 'Publicando item... ⏳';
+        itemSubmitBtn.disabled = true;
+
+        await Items.create({
+          title: title,
+          description: description,
+          daily_price: price,
+          category_id: categoryId,
+          location: 'São Paulo, SP',
+          photos: ['']
+        });
+
+        window.showToast('Item publicado com sucesso! 💎');
+        window.closeModal();
+
+        document.getElementById('itemTitle').value = '';
+        document.getElementById('itemDescription').value = '';
+        document.getElementById('itemPrice').value = '';
+
+        cachedItems = [];
+        if (typeof renderItems === 'function') renderItems();
+      } catch (error) {
+        window.showToast(`Erro ao publicar: ${error.message} ❌`);
+      } finally {
+        itemSubmitBtn.innerText = 'Publicar item';
+        itemSubmitBtn.disabled = false;
+      }
+    });
+  }
 });
