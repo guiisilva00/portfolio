@@ -2,6 +2,8 @@
    RENTEASE — APP JAVASCRIPT
    ============================================= */
 
+   import { Auth, Items, Categories } from './supabase.js';
+
 // ---- DATA ----
 const ITEMS = [
   { id:1, name:'Canon EOS R5 + 24-70mm', category:'tech', emoji:'📷', bg:'linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 100%)', price:'R$120', location:'Vila Madalena, SP', rating:4.9, reviews:47, badge:'hot', owner:'Rodrigo M.', ownerAv:'#3B82F6', desc:'Câmera full-frame 45MP, gravação 8K RAW, com lente L-series 24-70mm f/2.8. Carregadores e 2 baterias extras inclusas.' },
@@ -180,44 +182,72 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 // ---- RENDER ITEMS ----
-function renderItems() {
-  const grid = document.getElementById('itemsGrid');
-  const filtered = currentFilter === 'all' ? ITEMS : ITEMS.filter(i => i.category === currentFilter);
-  const toShow = filtered.slice(0, visibleCount);
+async function renderItems() {
+  const container = document.getElementById('featured-grid');
+  if (!container) return;
 
-  if (!toShow.length) {
-    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--slate-light)">
-      <p style="font-size:2rem">🔍</p><p style="margin-top:8px">Nenhum item nesta categoria ainda.</p>
-    </div>`;
-    return;
-  }
+  try {
+    // 1. Busca os itens reais da View do Supabase (que já junta dados do item, dono e categoria)
+    const items = await Items.browse({});
 
-  grid.innerHTML = toShow.map((item, i) => `
-    <div class="item-card reveal-up" style="--delay:${(i%4)*0.07}s" onclick="openItemModal(${item.id})">
-      <div class="item-img">
-        <div class="item-img-bg" style="--bg:${item.bg}">${item.emoji}</div>
-        ${item.badge ? `<span class="item-badge ${item.badge}">${item.badge === 'hot' ? '🔥 Popular' : '✨ Novo'}</span>` : ''}
-        <button class="item-fav" onclick="toggleFav(event,this)" aria-label="Favoritar">🤍</button>
-      </div>
-      <div class="item-body">
-        <p class="item-category">${getCatLabel(item.category)}</p>
-        <h3 class="item-name">${item.name}</h3>
-        <p class="item-location">📍 ${item.location}</p>
-        <div class="item-footer">
-          <p class="item-price">${item.price}<span>/dia</span></p>
-          <p class="item-rating">
-            <span class="star">★</span> ${item.rating}
-            <span class="reviews">(${item.reviews})</span>
-          </p>
+    // Se a base de dados estiver vazia, mostra uma mensagem amigável
+    if (!items || items.length === 0) {
+      container.innerHTML = `
+        <p class="no-items" style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem 0;">
+          No items available for rent yet. Be the first to list one! 🚀
+        </p>`;
+      return;
+    }
+
+    container.innerHTML = '';
+
+    const categoryStyles = {
+      'technology': { emoji: '📷', bg: 'linear-gradient(135deg,#e0e7ff 0%,#c7d2fe 100%)' },
+      'tools':      { emoji: '🔩', bg: 'linear-gradient(135deg,#fef3c7 0%,#fde68a 100%)' },
+      'adventure':  { emoji: '⛺', bg: 'linear-gradient(135deg,#d1fae5 0%,#a7f3d0 100%)' },
+      'sports':     { emoji: '⚽', bg: 'linear-gradient(135deg,#fee2e2 0%,#fca5a5 100%)' },
+      'events':     { emoji: '🎈', bg: 'linear-gradient(135deg,#fae8ff 0%,#f5d0fe 100%)' },
+      'home-garden':{ emoji: '🏡', bg: 'linear-gradient(135deg,#ffedf5 0%,#fbcfe8 100%)' }
+    };
+
+    items.forEach(item => {
+      const style = categoryStyles[item.category_slug] || { emoji: '📦', bg: 'linear-gradient(135deg,#f3f4f6 0%,#e5e7eb 100%)' };
+      
+      const hasPhoto = item.photos && item.photos.length > 0 && item.photos[0] !== '';
+      const imgContent = hasPhoto 
+        ? `<img src="${item.photos[0]}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;" />`
+        : `<span class="item-emoji">${style.emoji}</span>`;
+
+      const card = document.createElement('div');
+      card.className = 'item-card reveal';
+      
+      card.innerHTML = `
+        <div class="item-img-container" style="background: ${style.bg}">
+          ${imgContent}
+          ${item.owner_top_host ? '<span class="card-badge">TOP HOST</span>' : ''}
         </div>
-      </div>
-    </div>
-  `).join('');
+        <div class="item-body">
+          <div class="item-meta">
+            <span class="item-cat">${item.category_name || 'Item'}</span>
+            <span class="item-rating">★ ${Number(item.owner_rating || 5.0).toFixed(1)}</span>
+          </div>
+          <h3 class="item-title">${item.title}</h3>
+          <p class="item-loc">📍 ${item.location || 'Community'}</p>
+          <div class="item-footer">
+            <span class="item-price"><strong>R$ ${item.daily_price}</strong> / day</span>
+            <button class="btn-rent" onclick="window.location.href='pages/item.html?id=${item.id}'">Rent</button>
+          </div>
+        </div>
+      `;
+      
+      container.appendChild(card);
+    });
 
-  // Trigger reveal for new cards
-  setTimeout(() => {
-    grid.querySelectorAll('.reveal-up').forEach(el => el.classList.add('revealed'));
-  }, 50);
+    initCard3DEffect();
+
+  } catch (error) {
+    console.error('Error rendering items from Supabase:', error);
+  }
 }
 
 function getCatLabel(cat) {
