@@ -5,91 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Guilherme Silva</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         /* ==============================
-           CSS: ESTILOS E CORES
+           CSS: ESTILOS E CORES (NOVA PALETA VIOLETA)
            ============================== */
         :root {
-            --bg-color: #0f172a;       /* Fundo principal escuro */
-            --card-bg: #1e293b;        /* Fundo dos cartões */
-            --text-main: #f8fafc;      /* Cor do texto principal */
-            --text-muted: #94a3b8;     /* Cor do texto secundário */
-            --accent: #3b82f6;         /* Azul destaque */
-            --accent-hover: #2563eb;   /* Azul destaque (ao passar o mouse) */
+            /* Nova Paleta Fornecida */
+            --midnight-violet: #0e0725ff;
+            --dark-amethyst: #1b063eff;
+            --dark-amethyst-2: #280657ff;
+            --indigo-ink: #350571ff;
+            --indigo: #42048aff;
+            --indigo-2: #4f04a3ff;
+            --ultrasonic-blue: #5c03bcff;
+
+            /* Cores Auxiliares e Textos */
+            --text-main: #f8fafc;
+            --text-muted: #c4b5fd; /* Um tom de lilás bem clarinho para textos secundários */
+            --card-border: rgba(92, 3, 188, 0.4); /* ultrasonic-blue com transparência */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins', sans-serif; /* Fonte atualizada e moderna */
         }
 
         body {
-            background-color: var(--bg-color);
+            /* Fundo com um gradiente radial sofisticado usando a nova paleta */
+            background-color: var(--midnight-violet);
+            background-image: 
+                radial-gradient(circle at top left, var(--dark-amethyst), transparent 40%),
+                radial-gradient(circle at bottom right, var(--indigo-ink), transparent 50%);
+            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
             padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* --- Cabeçalho --- */
         header {
             text-align: center;
-            margin-bottom: 4rem;
-            padding-top: 2rem;
+            margin-bottom: 5rem;
+            padding-top: 3rem;
+            animation: fadeInDown 1s ease-out;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             margin-bottom: 0.5rem;
             letter-spacing: -1px;
+            font-weight: 700;
+            /* Efeito de texto com gradiente usando as cores mais claras */
+            background: linear-gradient(to right, #e9d5ff, var(--ultrasonic-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(92, 3, 188, 0.3);
         }
 
         header p {
             font-size: 1.2rem;
             color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         /* --- Grid de Projetos --- */
+        main {
+            flex-grow: 1;
+        }
+
         .projetos-container {
             max-width: 1000px;
             margin: 0 auto;
             display: grid;
-            /* Isso faz os cartões ficarem lado a lado no PC e um embaixo do outro no celular */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        /* --- Estilo dos Cartões (Cards) --- */
+        /* --- Estilo dos Cartões (Cards - Estilo Glassmorphism) --- */
         .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.8rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            border: 1px solid #334155;
+            background: linear-gradient(145deg, rgba(27, 6, 62, 0.6), rgba(14, 7, 37, 0.8)); /* dark-amethyst e midnight-violet */
+            backdrop-filter: blur(12px); /* Efeito de vidro borrado */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Linha de brilho superior no card */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--ultrasonic-blue), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
         /* Efeito ao passar o mouse */
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(92, 3, 188, 0.3); /* Brilho ultrasonic-blue */
+            border-color: var(--indigo-2);
+            background: linear-gradient(145deg, rgba(40, 6, 87, 0.7), rgba(27, 6, 62, 0.9));
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--text-main);
+            font-weight: 600;
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
         /* --- Botões --- */
@@ -100,30 +156,25 @@
 
         .btn {
             text-decoration: none;
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--indigo-2), var(--ultrasonic-blue));
             color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
             font-weight: 600;
-            transition: background-color 0.2s;
-            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
             text-align: center;
             flex: 1;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 15px rgba(66, 4, 138, 0.4); /* Sombra índigo */
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--accent);
-            color: white;
+            background: linear-gradient(135deg, var(--ultrasonic-blue), var(--indigo-2));
+            box-shadow: 0 6px 20px rgba(92, 3, 188, 0.6);
+            transform: translateY(-2px);
         }
 
         /* --- Rodapé --- */
@@ -133,6 +184,34 @@
             padding: 2rem 0;
             color: var(--text-muted);
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 300;
+        }
+
+        footer span {
+            color: var(--ultrasonic-blue);
+            font-weight: 600;
+        }
+
+        /* --- Animações --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade Extra */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .card {
+                padding: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -147,27 +226,18 @@
         <div class="projetos-container">
             
             <article class="card">
-                <h3>Turing System</h3>
-                <p>Um sistema desenvolvido com foco em interface e experiência do usuário. Construído utilizando HTML, CSS e JavaScript.</p>
+                <h3>Turing Systems</h3>
+                <p>Um sistema desenvolvido com foco em interface e experiência do usuário. Construído utilizando as melhores práticas de HTML, CSS e JavaScript para garantir uma navegação fluida.</p>
                 <div class="links">
                     <a href="./TuringSystem/html/index.html" class="btn">Abrir Projeto</a>
                 </div>
             </article>
 
-            <article class="card">
-                <h3>RentEase</h3>
-                <p>RentEase — Alugue qualquer coisa, de qualquer pessoa</p>
-                <div class="links">
-                    <a href="#" class="btn">Testar Online</a>
-                    <a href="./RentEase/index.html" target="_blank" class="btn btn-outline">Abrir projeto</a>
-                </div>
-            </article>
-
-        </div>
+            </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Guilherme Silva. Hospedado com ❤️ no GitHub Pages.</p>
+        <p>&copy; 2026 Guilherme Silva. Hospedado com no <span>GitHub Pages</span>.</p>
     </footer>
 
 </body>
