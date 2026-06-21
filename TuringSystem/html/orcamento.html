@@ -4,130 +4,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/formulario.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/variaveis.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <title>Turing Systems | Solicitar Orçamento</title>
+    <meta name="description" content="Solicite um orçamento personalizado para o seu projeto de desenvolvimento de software e infraestrutura.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../img/favicon.png" type="image/png">
-    <title>TS | Orçamento</title>
 </head>
 
-<body>
+<body class="stars-field stars-field--purple">
+    <a class="skip-link" href="#conteudo-principal">Pular para o formulário</a>
+
     <header class="header">
         <div class="container header__bar">
             <a class="marca" href="index.html">
-                <span class="marca_texto">Turing System</span>
+                <span class="marca_texto">Turing Systems</span>
             </a>
 
-            <nav class="nav">
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu de navegação">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+
+            <nav class="nav" id="primaryNav" aria-label="Navegação principal">
                 <a href="index.html">Home</a>
+                <a href="index.html#servicos">Serviços</a>
+                <a href="quemSomos.html">Quem Somos</a>
+                <a href="orcamento.html" aria-current="page">Orçamento</a>
+                <a href="contato.html">Contato</a>
+                <a href="login.html">Login</a>
             </nav>
         </div>
     </header>
-    <section class="form">
-        <h1>Solicite seu Orçamento</h1>
-        <p>
-            Preencha o formulário com os detalhes da sua necessidade. Com base nas informações,
-            preparamos um orçamento personalizado com escopo, prazo e investimento estimado.
-        </p>
-        <div class="container1">
-            <h2>Formulário de orçamento</h2>
-            <form class="formulario">
 
-                <div class="grupo">
-                    <label>Nome</label>
-                    <input type="text" placeholder="Seu nome completo">
+    <main id="conteudo-principal">
+        
+        <section class="page-banner reveal">
+            <div class="container container--narrow">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span aria-current="page">Orçamento</span>
                 </div>
+                <h1 class="section-title" style="font-family: 'Montserrat', sans-serif; text-transform: none;">Solicite seu Orçamento</h1>
+                <p class="section-lead">Conte-nos sobre o seu desafio. Preparamos uma proposta personalizada com escopo, prazos e arquitetura sob medida para o seu negócio.</p>
+            </div>
+        </section>
 
-                <div class="grupo">
-                    <label>Empresa</label>
-                    <input type="text" placeholder="Nome da empresa">
+        <section class="orcamento-section">
+            <div class="container">
+                <div class="orcamento-grid reveal">
+                    
+                    <aside class="orcamento-info">
+                        <div class="aside-card">
+                            <h3 style="font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 16px; margin-bottom: 15px; color: var(--color-cyan);">Como funciona?</h3>
+                            <ul style="display: grid; gap: 15px; color: var(--color-text-muted); font-size: 15px; line-height: 1.6;">
+                                <li><strong>1. Análise:</strong> Nossa equipe técnica vai avaliar os detalhes da sua solicitação.</li>
+                                <li><strong>2. Reunião de Alinhamento:</strong> Agendamos um call breve para tirar dúvidas e alinhar expectativas.</li>
+                                <li><strong>3. Proposta:</strong> Você recebe um documento completo com escopo, tecnologias e orçamento estimado.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="aside-card" style="margin-top: 20px;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 16px; margin-bottom: 15px; color: var(--color-cyan);">Dúvidas urgentes?</h3>
+                            <p style="color: var(--color-text-muted); font-size: 15px; margin-bottom: 10px;">Fale diretamente conosco:</p>
+                            <a href="mailto:contato@turingsystems.com.br" style="color: #fff; text-decoration: none; font-weight: bold; display: block; margin-bottom: 5px;">contato@turingsystems.com.br</a>
+                            <a href="tel:+5511999999999" style="color: #fff; text-decoration: none; font-weight: bold;">(11) 99999-9999</a>
+                        </div>
+                    </aside>
+
+                    <div class="orcamento-card">
+                        <h2 style="font-size: 24px; margin-bottom: 25px; font-family: 'Montserrat', sans-serif;">Detalhes do Projeto</h2>
+                        
+                        <form class="formulario">
+                            <div class="formulario-grid">
+                                <div class="grupo">
+                                    <label for="nome">Nome completo *</label>
+                                    <input type="text" id="nome" placeholder="Como devemos te chamar?" required aria-required="true">
+                                </div>
+
+                                <div class="grupo">
+                                    <label for="empresa">Empresa</label>
+                                    <input type="text" id="empresa" placeholder="Onde você trabalha?">
+                                </div>
+
+                                <div class="grupo">
+                                    <label for="email">E-mail corporativo *</label>
+                                    <input type="email" id="email" placeholder="seu@email.com" required aria-required="true">
+                                </div>
+
+                                <div class="grupo">
+                                    <label for="telefone">WhatsApp / Telefone</label>
+                                    <input type="tel" id="telefone" placeholder="(11) 99999-9999">
+                                </div>
+
+                                <div class="grupo">
+                                    <label for="servico">Tipo de serviço principal *</label>
+                                    <select id="servico" required aria-required="true">
+                                        <option value="" disabled selected>Selecione uma opção</option>
+                                        <option value="arquitetura">Arquitetura de Sistemas Digitais</option>
+                                        <option value="web">Desenvolvimento Web / Plataformas</option>
+                                        <option value="automacao">Automação e Integração de APIs</option>
+                                        <option value="infra">Infraestrutura, Cloud e Performance</option>
+                                    </select>
+                                </div>
+
+                                <div class="grupo">
+                                    <label for="prazo">Expectativa de prazo *</label>
+                                    <select id="prazo" required aria-required="true">
+                                        <option value="" disabled selected>Selecione uma opção</option>
+                                        <option value="urgente">Urgente (Imediato / Até 15 dias)</option>
+                                        <option value="curto">Curto (1 a 2 meses)</option>
+                                        <option value="medio">Médio (3 a 6 meses)</option>
+                                        <option value="planejamento">Apenas planejamento (Sem pressa)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grupo largura-total">
+                                <label for="descricao">Descreva seu projeto ou desafio tecnológico *</label>
+                                <textarea id="descricao" placeholder="Quais são os principais objetivos do projeto? Quais problemas ele visa resolver?" required aria-required="true"></textarea>
+                            </div>
+
+                            <div class="form-sucesso" role="alert">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                <span>Mensagem enviada com sucesso! Retornaremos em breve.</span>
+                            </div>
+
+                            <button type="submit" class="botao btn--orcamento" style="width: 100%; margin-top: 15px; padding: 16px; font-size: 16px;">Enviar Solicitação</button>
+                        </form>
+                    </div>
                 </div>
+            </div>
+        </section>
+    </main>
 
-                <div class="grupo">
-                    <label>E-mail</label>
-                    <input type="email" placeholder="seuemail@email.com">
-                </div>
+    <footer id="footer" style="border-top: 1px solid var(--color-line); padding: 60px 0 30px; background: var(--color-surface-2);">
+        <div class="container">
+            <div class="footer-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                <section class="footer-col" id="turing">
+                    <h3 class="footer-title" style="font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 16px;">Turing Systems</h3>
+                    <p id="sobre" style="font-size: 14px; color: var(--color-text-soft); line-height: 1.6;">
+                        A Turing Systems é uma consultoria em desenvolvimento de sistemas focada em conectar ideias e empresas aos desenvolvedores certos. Unimos visão de produto e excelência técnica para soluções escaláveis.
+                    </p>
+                </section>
 
-                <div class="grupo">
-                    <label>Telefone</label>
-                    <input type="text" placeholder="(11) 99999-9999">
-                </div>
+                <section class="footer-col" id="links">
+                    <h3 class="footer-title" style="font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 16px;">Links úteis</h3>
+                    <ul style="display: grid; gap: 10px;">
+                        <li><a href="index.html" style="font-size: 14px; color: var(--color-text-muted);">Home</a></li>
+                        <li><a href="index.html#servicos" style="font-size: 14px; color: var(--color-text-muted);">Serviços e Portfólio</a></li>
+                        <li><a href="quemSomos.html" style="font-size: 14px; color: var(--color-text-muted);">Sobre nós</a></li>
+                        <li><a href="contato.html" style="font-size: 14px; color: var(--color-text-muted);">Contato</a></li>
+                        <li><a href="login.html" style="font-size: 14px; color: var(--color-text-muted);">Login</a></li>
+                    </ul>
+                </section>
 
-                <div class="grupo">
-                    <label>Tipo de serviço</label>
-                    <select>
-                        <option>Selecione</option>
-                        <option>Arquitetura de Sistemas Digitais</option>
-                        <option>Desenvolvimento Web</option>
-                        <option>Automação e Integrações</option>
-                        <option>Infraestrutura e Performance</option>
-                    </select>
-                </div>
+                <section class="footer-col" id="termos">
+                    <h3 class="footer-title" style="font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin-bottom: 16px;">Termos de Uso</h3>
+                    <a href="termosdeUso.html" style="font-size: 14px; color: var(--color-text-muted); text-decoration: none;">Políticas de privacidade da empresa</a>
+                </section>
+            </div>
 
-                <div class="grupo">
-                    <label>Prazo</label>
-                    <select>
-                        <option>Selecione</option>
-                        <option>Urgente (até 7 dias)</option>
-                        <option>Curto (15 a 30 dias)</option>
-                        <option>Médio (1 a 2 meses)</option>
-                        <option>Sem pressa</option>
-                    </select>
-                </div>
-
-                <div class="grupo largura-total">
-                    <label>Descrição</label>
-                    <textarea placeholder="Descreva o projeto"></textarea>
-                </div>
-
-                <button type="submit" class="botao">Enviar solicitação</button>
-            </form>
+            <div class="footer-bottom" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--color-line); text-align: center; font-size: 13px; color: var(--color-text-soft);">
+                &copy; <span data-ano-atual></span> Turing Systems. Todos os direitos reservados.
+            </div>
         </div>
+    </footer>
 
-
-    </section>
+    <script src="../js/main.js"></script>
 </body>
-
-<footer id="footer">
-    <div class="top"></div>
-    <div class="container-footer">
-        <div class="footer-box">
-            <section class="footer-col" id="turing">
-                <h3 class="footer-title">Turing Systems</h3>
-                <p id="sobre">A Turing Systems é uma consultoria em desenvolvimento de sistemas focada em conectar
-                    ideias e empresas aos
-                    desenvolvedores certos, com agilidade e clareza. Unimos visão de produto, experiência técnica e um
-                    processo
-                    direto
-                    para transformar demandas corporativas e projetos pessoais em soluções modernas, funcionais e
-                    escaláveis —
-                    sempre
-                    com um padrão de qualidade que valoriza performance, usabilidade e confiança.
-                </p>
-            </section>
-
-            <section class="footer-col" id="links">
-                <h3 class="footer-title">Links úteis</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#">Serviços e portfólio</a></li>
-                    <li><a href="quemSomos.html">Sobre nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </section>
-
-            <section class="footer-col" id="termos">
-                <h3 class="footer-title">Termos de Uso</h3>
-                <a href="termosdeUso.html">Políticas de privacidade da nossa empresa</a>
-            </section>
-        </div>
-    </div>
-</footer>
-
 </html>

@@ -4,15 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Turing Systems</title>
+  <title>Turing Systems | Consultoria em Desenvolvimento de Sistemas</title>
+  <meta name="description" content="A Turing Systems projeta, desenvolve e escala sistemas digitais sob medida: arquitetura, desenvolvimento web, automação e infraestrutura para empresas que querem ir além.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../img/favicon.png" type="image/png">
 </head>
 
 <body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
 
   <header class="header">
     <div class="container header__bar">
@@ -20,26 +23,42 @@
         <span class="marca_texto">Turing Systems</span>
       </a>
 
-      <nav class="nav">
-        <a href="login.html">Login</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu de navegação">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="nav" id="primaryNav" aria-label="Navegação principal">
+        <a href="index.html">Home</a>
         <a href="#servicos">Serviços</a>
-        <a href="quemSomos.html">Sobre</a>
+        <a href="quemSomos.html">Quem Somos</a>
+        <a href="orcamento.html">Orçamento</a>
         <a href="contato.html">Contato</a>
+        <a href="login.html">Login</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="conteudo-principal">
+
+    <!-- ======================= HERO ======================= -->
     <section class="hero">
       <video class="hero__video" autoplay muted loop playsinline>
         <source src="../video/space.mp4" type="video/mp4">
       </video>
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
       <div class="hero__content">
-        <img class="hero__logo" 
-        src="../img/logotsys.png"
-        alt="Logo da nossa empresa: Turing Systems, com uma linha embaixo do nome.">
+        <span class="eyebrow">turing systems · consultoria de software</span>
+
+        <img class="hero__logo"
+          src="../img/logotsys.png"
+          alt="Logo da Turing Systems, com uma linha abaixo do nome.">
+
         <p class="hero__subtitle">
-          Desenvolvemos soluções digitais funcionais para fortalecer sua presença e ampliar seus resultados.
+          Projetamos e desenvolvemos sistemas digitais sob medida que aceleram operações,
+          escalam junto com o seu negócio e fortalecem sua presença no mercado.
         </p>
 
         <div class="hero__actions">
@@ -47,8 +66,45 @@
           <a href="#servicos" class="btn btn--servicos">Ver serviços</a>
         </div>
       </div>
+
+      <div class="hero__scroll-cue" aria-hidden="true">
+        <span>role para explorar</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </div>
     </section>
-    <section>
+
+    <!-- ======================= TELEMETRIA ======================= -->
+    <section class="stats reveal">
+      <div class="container stats__grid">
+        <div class="stat">
+          <span class="stat__number" data-count="120" data-suffix="+">0</span>
+          <span class="stat__label">Projetos entregues</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number" data-count="8" data-suffix="+">0</span>
+          <span class="stat__label">Anos de atuação</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number" data-count="35" data-suffix="+">0</span>
+          <span class="stat__label">Especialistas na rede</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number" data-count="98" data-suffix="%">0</span>
+          <span class="stat__label">Satisfação dos clientes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CARROSSEL DE TECNOLOGIAS ======================= -->
+    <section class="tech">
+      <div class="container section-head reveal">
+        <span class="eyebrow">stack</span>
+        <h2 class="section-title">Tecnologias que dominamos</h2>
+        <p class="section-lead">Ferramentas modernas, testadas em produção e escolhidas conforme a necessidade real de cada projeto — nunca por modismo.</p>
+      </div>
+
       <div class="divider"></div>
       <div class="carrossel">
         <div class="group">
@@ -83,140 +139,346 @@
       </div>
       <div class="divider"></div>
     </section>
+
+    <!-- ======================= SERVIÇOS ======================= -->
     <section class="servicos" id="servicos">
 
-      <section class="hero">
+      <section class="hero" style="min-height:auto; padding:0;">
+        <div class="container section-head reveal">
+          <span class="eyebrow">o que fazemos</span>
+          <h1 class="section-title" style="top:0;">Serviços & Portfólio</h1>
+          <p class="section-lead">
+            Projetamos e desenvolvemos sistemas digitais de alta performance
+            para empresas que operam em outro nível.
+          </p>
+        </div>
+
         <div class="container">
-          <h1>SERVIÇOS & PORTFÓLIO</h1>
-          <div class="sub">
-            <p><br>
-              Projetamos e desenvolvemos sistemas digitais de alta performance
-              para empresas que operam em outro nível.
-            </p>
-          </div>
-        </div>
-        <div class="services-grid">
-          <div class="card">
-            <div class="card-image">
-              <img src="../img/servicos/arquitetura.jpg" alt="Plataforma de Arquitetura Digital">
+          <div class="services-grid">
+            <div class="card reveal">
+              <div class="card-image">
+                <img src="../img/servicos/arquitetura.jpg" alt="Plataforma de Arquitetura Digital">
+              </div>
+              <div class="card-content">
+                <div class="card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg>
+                </div>
+                <h3>Arquitetura de Sistemas Digitais</h3>
+                <p>Planejamento técnico da solução para garantir organização, escalabilidade e segurança desde o início.</p>
+                <div class="card-tags"><span>System design</span><span>Escalabilidade</span><span>Segurança</span></div>
+              </div>
             </div>
 
-            <div class="card-content">
-              <h3>Arquitetura de Sistemas Digitais</h3>
-              <p>Planejamento técnico da solução para garantir organização, escalabilidade e segurança desde o início.
-              </p>
+            <div class="card reveal">
+              <div class="card-image">
+                <img src="../img/servicos/desenvolvimento.jpg" alt="Desenvolvimento Web">
+              </div>
+              <div class="card-content">
+                <div class="card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6"/><path d="m16 6 6 6-6 6"/></svg>
+                </div>
+                <h3>Desenvolvimento Web</h3>
+                <p>Criação de sites, páginas institucionais e sistemas personalizados com foco em desempenho e experiência do usuário.</p>
+                <div class="card-tags"><span>React</span><span>Node.js</span><span>UI/UX</span></div>
+              </div>
             </div>
-          </div>
 
-          <div class="card">
-            <div class="card-image">
-              <img src="../img/servicos/desenvolvimento.jpg" alt="Desenvolvimento Web">
+            <div class="card reveal">
+              <div class="card-image">
+                <img src="../img/servicos/auto.jpg" alt="Automação & Integrações">
+              </div>
+              <div class="card-content">
+                <div class="card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 0 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.03 4.24l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3a2 2 0 0 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 0 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1Z"/></svg>
+                </div>
+                <h3>Automação & Integrações</h3>
+                <p>Conectamos ferramentas, APIs e processos para reduzir tarefas manuais e aumentar eficiência operacional.</p>
+                <div class="card-tags"><span>APIs</span><span>Webhooks</span><span>RPA</span></div>
+              </div>
             </div>
-            <div class="card-content">
-              <h3>Desenvolvimento Web</h3>
-              <p>Criação de sites, páginas institucionais e sistemas personalizados com foco em desempenho e
-                experiência do usuário.</p>
-            </div>
-          </div>
 
-          <div class="card">
-            <div class="card-image">
-              <img src="../img/servicos/auto.jpg" alt="Automação & Integrações">
-            </div>
-            <div class="card-content">
-              <h3>Automação & Integrações</h3>
-              <p>Conectamos ferramentas, APIs e processos para reduzir tarefas manuais e aumentar eficiência
-                operacional.</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-image">
-              <img src="../img/servicos/infraestrutura.jpg" alt="Infraestrutura & Performance">
-            </div>
-            <div class="card-content">
-              <h3>Infraestrutura & Performance</h3>
-              <p>Ajustamos estrutura, carregamento e estabilidade para que sua solução funcione com rapidez e
-                confiança.</p>
+            <div class="card reveal">
+              <div class="card-image">
+                <img src="../img/servicos/infraestrutura.jpg" alt="Infraestrutura & Performance">
+              </div>
+              <div class="card-content">
+                <div class="card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="15" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 18h.01"/></svg>
+                </div>
+                <h3>Infraestrutura & Performance</h3>
+                <p>Ajustamos estrutura, carregamento e estabilidade para que sua solução funcione com rapidez e confiança.</p>
+                <div class="card-tags"><span>Cloud</span><span>CI/CD</span><span>Monitoramento</span></div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </section>
 
       <div class="divider"></div>
 
+      <!-- ======================= COMO TRABALHAMOS ======================= -->
+      <section class="processo">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">metodologia</span>
+            <h2 class="section-title">Como trabalhamos</h2>
+            <p class="section-lead">Um processo claro do primeiro contato até a entrega — e além dela.</p>
+          </div>
+
+          <div class="processo__trilho reveal reveal-stagger">
+            <div class="passo" style="--i:0">
+              <div class="passo__numero" aria-hidden="true"></div>
+              <h3>Diagnóstico</h3>
+              <p>Entendemos seu negócio, seus processos e os problemas reais que o sistema precisa resolver.</p>
+            </div>
+            <div class="passo" style="--i:1">
+              <div class="passo__numero" aria-hidden="true"></div>
+              <h3>Arquitetura</h3>
+              <p>Desenhamos a solução técnica: estrutura, integrações, segurança e plano de escalabilidade.</p>
+            </div>
+            <div class="passo" style="--i:2">
+              <div class="passo__numero" aria-hidden="true"></div>
+              <h3>Desenvolvimento</h3>
+              <p>Construímos em ciclos curtos, com entregas incrementais e validação constante com você.</p>
+            </div>
+            <div class="passo" style="--i:3">
+              <div class="passo__numero" aria-hidden="true"></div>
+              <h3>Evolução</h3>
+              <p>Acompanhamos o sistema em produção, com suporte, monitoramento e melhorias contínuas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ======================= DIFERENCIAIS ======================= -->
+      <section class="diferenciais">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">por que a turing</span>
+            <h2 class="section-title">Diferenciais que fazem sentido</h2>
+            <p class="section-lead">Não vendemos código. Entregamos sistemas em que o seu negócio pode confiar.</p>
+          </div>
+
+          <div class="diferenciais__grid reveal reveal-stagger">
+            <div class="diferencial" style="--i:0">
+              <div class="diferencial__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+              </div>
+              <div>
+                <h3>Segurança em primeiro lugar</h3>
+                <p>Práticas de desenvolvimento seguro, criptografia de dados sensíveis e revisão de código em cada entrega.</p>
+              </div>
+            </div>
+            <div class="diferencial" style="--i:1">
+              <div class="diferencial__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></svg>
+              </div>
+              <div>
+                <h3>Comunicação direta</h3>
+                <p>Acompanhamento próximo do projeto, sem intermediários, com relatórios claros de progresso.</p>
+              </div>
+            </div>
+            <div class="diferencial" style="--i:2">
+              <div class="diferencial__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <h3>Times multidisciplinares</h3>
+                <p>Arquitetos, desenvolvedores e especialistas em infraestrutura trabalhando juntos desde o primeiro dia.</p>
+              </div>
+            </div>
+            <div class="diferencial" style="--i:3">
+              <div class="diferencial__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-4 4"/></svg>
+              </div>
+              <div>
+                <h3>Entregas escaláveis</h3>
+                <p>Sistemas pensados para crescer junto com a operação do seu negócio, sem retrabalho.</p>
+              </div>
+            </div>
+            <div class="diferencial" style="--i:4">
+              <div class="diferencial__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5Z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5Z"/></svg>
+              </div>
+              <div>
+                <h3>Suporte contínuo</h3>
+                <p>Manutenção e evolução do sistema após o lançamento, com prazos de atendimento bem definidos.</p>
+              </div>
+            </div>
+            <div class="diferencial" style="--i:5">
+              <div class="diferencial__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+              </div>
+              <div>
+                <h3>Tecnologia de ponta</h3>
+                <p>Stack moderna, testada e documentada — sem dívidas técnicas escondidas debaixo do tapete.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ======================= CASES / PARCEIROS ======================= -->
       <section>
         <div class="container">
-          <h2>Empresas parceiras</h2>
-          <p class="section-lead">
-            Conheça alguns exemplos fictícios de empresas que confiaram na Turing System para
-            modernizar sua presença digital e aprimorar seus processos.
-          </p>
+          <div class="section-head reveal">
+            <span class="eyebrow">cases</span>
+            <h2 class="section-title">Empresas parceiras</h2>
+            <p class="section-lead">
+              Conheça alguns exemplos fictícios de empresas que confiaram na Turing System para
+              modernizar sua presença digital e aprimorar seus processos.
+            </p>
+          </div>
 
-          <div class="services-grid">
-            <div class="card-whover">
+          <div class="services-grid reveal reveal-stagger">
+            <div class="card-whover" style="--i:0">
               <div class="card-content">
                 <span class="case-tag">Comércio digital</span>
                 <h3>NovaPulse</h3>
                 <p><strong>Desafio:</strong> melhorar a presença online e organizar o atendimento.</p>
                 <p><strong>Solução:</strong> desenvolvimento de um site moderno e otimização dos processos digitais.</p>
                 <p><strong>Resultado:</strong> mais profissionalismo, eficiência e novos clientes.</p>
+                <div class="card-whover__metric">
+                  <strong>+40%</strong>
+                  <span>em engajamento digital</span>
+                </div>
               </div>
             </div>
 
-            <div class="card-whover">
+            <div class="card-whover" style="--i:1">
               <div class="card-content">
                 <span class="case-tag">Logística</span>
                 <h3>Vértice Logística</h3>
-                <p><strong>Desafio:</strong> tornar a operação digital mais prática e coerente com a qualidade da
-                  empresa.</p>
-                <p><strong>Solução:</strong> reestruturação da apresentação digital e melhoria no contato com clientes.
-                </p>
+                <p><strong>Desafio:</strong> tornar a operação digital mais prática e coerente com a qualidade da empresa.</p>
+                <p><strong>Solução:</strong> reestruturação da apresentação digital e melhoria no contato com clientes.</p>
                 <p><strong>Resultado:</strong> mais confiança, competitividade e agilidade.</p>
+                <div class="card-whover__metric">
+                  <strong>-35%</strong>
+                  <span>no tempo de resposta ao cliente</span>
+                </div>
               </div>
             </div>
 
-            <div class="card-whover">
+            <div class="card-whover" style="--i:2">
               <div class="card-content">
                 <span class="case-tag">Tecnologia</span>
                 <h3>Lumera Tech</h3>
                 <p><strong>Desafio:</strong> comunicar soluções com mais clareza e fortalecer a imagem da marca.</p>
                 <p><strong>Solução:</strong> criação de um ambiente digital mais atrativo, organizado e eficiente.</p>
                 <p><strong>Resultado:</strong> melhor comunicação e mais credibilidade no mercado.</p>
+                <div class="card-whover__metric">
+                  <strong>+60%</strong>
+                  <span>em credibilidade percebida</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <div class="divider"></div>
+
+      <!-- ======================= DEPOIMENTOS ======================= -->
+      <section class="depoimentos">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">depoimentos</span>
+            <h2 class="section-title">Quem trabalhou com a gente, recomenda</h2>
+          </div>
+
+          <div class="depoimentos__track reveal reveal-stagger">
+            <article class="depoimento" style="--i:0">
+              <svg class="depoimento__quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 8C6.5 8 4 10.5 4 13.5S6.5 19 9.5 19c.4 0 .8 0 1.1-.1-1 1.4-2.6 2.4-4.6 2.6v1.5c4.5-.3 7.5-3.6 7.5-8.2C13.5 11 11.8 8 9.5 8Zm10 0c-3 0-5.5 2.5-5.5 5.5S16.5 19 19.5 19c.4 0 .8 0 1.1-.1-1 1.4-2.6 2.4-4.6 2.6v1.5c4.5-.3 7.5-3.6 7.5-8.2 0-3.8-1.7-6.8-4-6.8Z"/></svg>
+              <p>A Turing Systems entendeu exatamente o que a NovaPulse precisava e entregou um sistema que simplificou toda a nossa operação digital.</p>
+              <div class="depoimento__autor">
+                <span class="depoimento__avatar" aria-hidden="true">ML</span>
+                <div>
+                  <strong>Mariana Lopes</strong>
+                  <span>NovaPulse</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="depoimento" style="--i:1">
+              <svg class="depoimento__quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 8C6.5 8 4 10.5 4 13.5S6.5 19 9.5 19c.4 0 .8 0 1.1-.1-1 1.4-2.6 2.4-4.6 2.6v1.5c4.5-.3 7.5-3.6 7.5-8.2C13.5 11 11.8 8 9.5 8Zm10 0c-3 0-5.5 2.5-5.5 5.5S16.5 19 19.5 19c.4 0 .8 0 1.1-.1-1 1.4-2.6 2.4-4.6 2.6v1.5c4.5-.3 7.5-3.6 7.5-8.2 0-3.8-1.7-6.8-4-6.8Z"/></svg>
+              <p>O processo foi transparente do início ao fim. A equipe técnica entendeu nossa operação de logística melhor do que esperávamos.</p>
+              <div class="depoimento__autor">
+                <span class="depoimento__avatar" aria-hidden="true">RC</span>
+                <div>
+                  <strong>Rafael Castro</strong>
+                  <span>Vértice Logística</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="depoimento" style="--i:2">
+              <svg class="depoimento__quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 8C6.5 8 4 10.5 4 13.5S6.5 19 9.5 19c.4 0 .8 0 1.1-.1-1 1.4-2.6 2.4-4.6 2.6v1.5c4.5-.3 7.5-3.6 7.5-8.2C13.5 11 11.8 8 9.5 8Zm10 0c-3 0-5.5 2.5-5.5 5.5S16.5 19 19.5 19c.4 0 .8 0 1.1-.1-1 1.4-2.6 2.4-4.6 2.6v1.5c4.5-.3 7.5-3.6 7.5-8.2 0-3.8-1.7-6.8-4-6.8Z"/></svg>
+              <p>Profissionalismo do primeiro contato à entrega. Hoje nosso ambiente digital realmente representa a qualidade do que fazemos.</p>
+              <div class="depoimento__autor">
+                <span class="depoimento__avatar" aria-hidden="true">TF</span>
+                <div>
+                  <strong>Tatiane Furlan</strong>
+                  <span>Lumera Tech</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
     </section>
+
+    <!-- ======================= CTA FINAL ======================= -->
+    <section class="cta-band stars-field stars-field--purple reveal">
+      <div class="container container--narrow">
+        <span class="eyebrow">vamos começar?</span>
+        <h2 class="section-title">Pronto para elevar seu sistema ao próximo nível?</h2>
+        <p class="section-lead">Conte um pouco sobre o seu projeto e receba uma proposta personalizada, com escopo, prazo e investimento estimado.</p>
+        <div class="hero__actions" style="opacity:1; animation:none;">
+          <a href="orcamento.html" class="btn btn--orcamento">Solicitar orçamento</a>
+          <a href="contato.html" class="btn btn--ghost">Falar com um especialista</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer id="footer">
-    <div class="top"></div>
     <div class="container-footer">
       <div class="footer-box">
         <section class="footer-col" id="turing">
           <h3 class="footer-title">Turing Systems</h3>
           <p id="sobre">A Turing Systems é uma consultoria em desenvolvimento de sistemas focada em conectar ideias e
-            empresas aos
-            desenvolvedores certos, com agilidade e clareza. Unimos visão de produto, experiência técnica e um processo
-            direto
-            para transformar demandas corporativas e projetos pessoais em soluções modernas, funcionais e escaláveis —
-            sempre
-            com um padrão de qualidade que valoriza performance, usabilidade e confiança.
+            empresas aos desenvolvedores certos, com agilidade e clareza. Unimos visão de produto, experiência técnica
+            e um processo direto para transformar demandas corporativas e projetos pessoais em soluções modernas,
+            funcionais e escaláveis — sempre com um padrão de qualidade que valoriza performance, usabilidade e
+            confiança.
           </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Turing Systems no LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v6M7 7v.01M11 16v-4a2 2 0 0 1 4 0v4M11 12v4"/></svg>
+            </a>
+            <a href="#" aria-label="Turing Systems no GitHub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2-.2 4.5-1 4.5-4.5a3.5 3.5 0 0 0-1-2.5c.3-1 .3-2 0-3 0 0-1 0-2.5 1.2-2-.5-4-.5-6 0C8 5 7 5 7 5c-.3 1-.3 2 0 3-.7.7-1 1.5-1 2.5C6 14 8.5 14.8 10.5 15c-.4.4-.5 1-.5 1.5V19"/></svg>
+            </a>
+            <a href="#" aria-label="Turing Systems no Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><path d="M17.5 6.5h.01"/></svg>
+            </a>
+          </div>
         </section>
 
         <section class="footer-col" id="links">
           <h3 class="footer-title">Links úteis</h3>
           <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#servicos">Serviços e portfólio</a></li>
             <li><a href="quemSomos.html">Sobre nós</a></li>
             <li><a href="orcamento.html">Orçamento</a></li>
-            <li><a href="contato.html">Contato</a></li>
             <li><a href="login.html">Login</a></li>
-
           </ul>
         </section>
 
@@ -225,10 +487,18 @@
           <a href="termosdeUso.html">Políticas de privacidade da nossa empresa</a>
         </section>
       </div>
+
+      <div class="footer-bottom">
+        &copy; <span data-ano-atual>2026</span> Turing Systems. Todos os direitos reservados.
+      </div>
     </div>
   </footer>
 
-</body>
+  <button class="voltar-topo" id="voltarTopo" aria-label="Voltar ao topo da página">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
 
+  <script src="../js/main.js"></script>
+</body>
 
 </html>
