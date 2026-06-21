@@ -2555,3 +2555,116 @@ body.page-termos { background: var(--color-bg); }
     padding: 18px !important;
     letter-spacing: 1px;
 }
+/* ============================================================================
+   ESTILOS ESPECÍFICOS PARA A PÁGINA DE CONTATO
+   ============================================================================ */
+.contato-section {
+    padding: 20px 0 100px;
+}
+
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Coluna menor p/ texto, maior p/ formulário */
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Informações acompanham a rolagem */
+.contato-info {
+    position: sticky;
+    top: 100px;
+}
+
+/* O cartão do formulário (Glassmorphism) */
+.contato-card {
+    background: rgba(13, 8, 22, 0.85);
+    border: 1px solid rgba(138, 43, 226, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+}
+
+/* Evita o conflito com formulários antigos no PC */
+.contato-card .formulario {
+    display: block !important;
+}
+
+.contato-card .formulario-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* Tamanhos confortáveis para clicar no PC */
+.contato-card .grupo input,
+.contato-card .grupo select {
+    padding: 18px 16px !important;
+    font-size: 16px !important;
+}
+
+.contato-card .grupo textarea {
+    padding: 18px 16px !important;
+    font-size: 16px !important;
+    min-height: 160px;
+}
+
+.contato-card .largura-total {
+    grid-column: 1 / -1;
+}
+
+/* ---- Botões de Contato Direto (WhatsApp e Email) ---- */
+.btn-contato-direto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Efeito Glow Verde para o WhatsApp */
+.btn-contato-direto.wpp:hover {
+    background: rgba(34, 197, 94, 0.15); 
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Efeito Glow Ciano para o Email */
+.btn-contato-direto.email:hover {
+    background: rgba(0, 195, 255, 0.15); 
+    border-color: rgba(0, 195, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 195, 255, 0.2);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsividade (Celular empilha os itens corretamente) */
+@media (max-width: 860px) {
+    .contato-grid {
+        grid-template-columns: 1fr;
+    }
+    .contato-info {
+        position: static;
+        order: 2; /* Texto e botões diretos vão para baixo do form */
+    }
+    .contato-card {
+        order: 1; /* Form é a prioridade no topo */
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contato-card .formulario-grid {
+        grid-template-columns: 1fr;
+    }
+}
