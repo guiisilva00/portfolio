@@ -1,6 +1,6 @@
 # Hi 👋, I'm Guilherme Silva (guiisilva00)
 
-🚀 **Full-Stack Developer Student | PHP & SQL Enthusiast** 🇧🇷 Brazil
+🚀 **Full-Stack Developer Student | PHP, JS, MYSQL 🇧🇷 Brazil
 
 Estudante de Desenvolvimento de Sistemas focado na criação de soluções eficientes, seguras e de alto desempenho. Apaixonado por arquitetura de software, automação de processos e otimização de bases de dados, procuro sempre traduzir requisitos complexos em interfaces simples e intuitivas.
 
